@@ -1,0 +1,62 @@
+<div class="page-content">
+  <div class="page-wrap">
+    <h2>My Profiles</h2>
+
+    <div class="profile" *ngFor="let profile of this.profiles.list; let i = index;">
+      <div class="profile-img">
+        <img [src]="this.utility.getImage(profile.photoUrl)"/>
+      </div>
+      <div class="profile-text">
+        <h3>{{profile.name}}</h3>
+        <p>{{profile.tagline}}</p>
+
+        <div class="button-wrap">
+
+          <div class="tags">
+            <a class="tag">
+              Published: {{profile.published}}
+            </a>
+            <a class="tag">
+              NSFW: {{profile.nsfw}}
+            </a>
+            <a class="tag">
+              Censored: {{profile.censored}}
+            </a>
+          </div>
+
+          <app-button [type]="'small'" [label]="'Delete'" [loading]="this.profiles.loading" [color]="'red'" (click)="profile.deleteToggle = !profile.deleteToggle"></app-button>
+          <app-button [type]="'small'" [label]="'View'" [loading]="this.profiles.loading" routerLink="/profile/{{profile._id}}"></app-button>
+
+        </div>
+
+        <div class="profile-confirm-delete easing" [class.active]="profile.deleteToggle">
+
+          <h3>Are you sure you want to delete {{profile.name}}?</h3>
+          <p>
+            This is permanent and not reversible.
+            You will still keep the cryptocurrency you have earned.
+          </p>
+
+          <div class="button-wrap">
+            <app-button [type]="'small'" [label]="'Cancel'" [loading]="this.profiles.loading" (click)="profile.deleteToggle = false"></app-button>
+            <app-button [type]="'small'" [label]="'Confirm & Delete'" [loading]="this.profiles.loading" [color]="'red'" (click)="this.profiles.deleteProfile(profile._id)"></app-button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="button-wrap">
+
+      <p
+        class="info easing"
+        [class.active]="this.profiles.messageState"
+      >
+          {{this.profiles.message}}
+      </p>
+      <app-button [type]="'big'" [label]="'New Profile'" [loading]="this.profiles.loading" (click)="this.profiles.createProfile()"></app-button>
+
+    </div>
+
+  </div>
+</div>

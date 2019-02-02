@@ -1,0 +1,55 @@
+@import "../../../base.styles.scss";
+
+div.profile-banner {
+    width: 100%;
+    height: 400px;
+    background: $g2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px dashed $g4;
+    position: relative;
+    overflow: hidden;
+
+    a.edit-banner-button {
+        width: 280px;
+        height: 50px;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $g3;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        position: relative;
+        z-index: 5;
+
+        &:hover {
+            background: $g4;
+            transform: scale(1.1);
+        }
+        &.corner {
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+        }
+
+        @media(max-width: 960px) {
+            left: calc(50% - 140px);
+        }
+    }
+
+    input { display: none; }
+
+    img.banner {
+        display: none;
+        &.visible { display: block; }
+        position: absolute;
+        left: calc(50% - 600px);
+        top: calc(50% - 200px);
+        width: 1200px;
+        height: 400px;
+        z-index: 1;
+    }
+}

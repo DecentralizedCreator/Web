@@ -1,0 +1,188 @@
+@import "../../../base.styles.scss";
+
+div.profile-header {
+    width: 100%;
+    min-height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $g2;
+    border-bottom: 2px dashed $g4;
+
+    @media (max-width: 960px) {
+        flex-direction: column;
+    }
+
+    div.profile-photo-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 210px;
+        height: 210px;
+        padding: 30px;
+
+        input { display: none; }
+    }
+
+    div.profile-photo {
+        width: 150px;
+        height: 150px;
+        background: $g3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border-radius: 50%;
+        border: 2px dashed $g4;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        a.edit-profile {
+            background: $g4;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            font-size: 14px;
+            text-align: center;
+            font-weight: bold;
+            opacity: 0.1;
+            position: relative;
+            z-index: 4;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    div.profile-name {
+        width: calc(100% - 210px);
+        display: block;
+        padding: 15px 15px 15px 0px;
+        position: relative;
+
+        @media (max-width: 960px) {
+            width: 100%;
+            padding: 0 0 30px 0;
+            input {
+                margin: 0 15px 15px 15px;
+            }
+        }
+
+        div.profile-input-wrap {
+            position: relative;
+        }
+
+        span.input-dialog {
+            position: absolute;
+            right: 60px;
+            top: 60px;
+            font-size: 14px;
+            background: $g1;
+            padding: 10px 15px;
+            border-radius: 15px;
+            opacity: 0;
+            pointer-events: none;
+            &.active {
+                opacity: 1;
+            }
+        }
+
+        span.input-limit {
+            position: absolute;
+            right: 60px;
+            top: 31.25px;
+            font-size: 18px;
+            background: $g5;
+            padding: 5px;
+        }
+
+        a.input-checkmark {
+            position: absolute;
+            right: 25px;
+            top: 32.5px;
+            width: 25px;
+            height: 25px;
+            border-radius: 12.5px;
+            background: $b5;
+            color: white;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            i {
+                padding-top: 2px;
+            }
+            &:hover {
+                transform: scale(1.25);
+                background: $b3;
+            }
+        }
+
+        p.label {
+            font-size: 18px;
+            font-weight: 300;
+            margin: 0 15px 5px 15px;
+        }
+        input {
+            width: calc(100% - 30px);
+            height: 40px;
+            border: none;
+            padding: 0 15px;
+            font-size: 24px;
+            background: $g3;
+            color: white;
+            font-family: inherit;
+            margin: 0 15px 10px 15px;
+            &.tagline {
+                font-size: 18px;
+            }
+        }
+
+        div.button-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 15px;
+            width: 100%;
+            p.info-label {
+                font-size: 18px;
+                font-weight: 300;
+                margin-right: 30px;
+                opacity: 0;
+                pointer-events: none;
+                &.red { color: $red; }
+                &.green { color: $green; }
+                &.active { opacity: 1; }
+            }
+            a.button {
+                width: 200px;
+                height: 40px;
+                border-radius: 20px;
+                background: $b5;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                margin: 0;
+                &:hover {
+                    background: $b3;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+<div class="profile-links">
+    <div class="profile-link">
+        <p class="label">
+            <i class="fas fa-globe-americas"></i>
+            Website Url
+        </p>
+        <input type="text" [(ngModel)]="this.profile.form.websiteUrl"/>
+    </div>
+    <div class="profile-link">
+        <p class="label">
+            <i class="fab fa-github"></i>
+            Github Url
+        </p>
+        <input type="text" [(ngModel)]="this.profile.form.githubUrl"/>
+    </div>
+    <div class="profile-link">
+        <p class="label">
+            <i class="fab fa-facebook-square"></i>
+            Facebook Url
+        </p>
+        <input type="text" [(ngModel)]="this.profile.form.facebookUrl"/>
+    </div>
+    <div class="profile-link">
+        <p class="label">
+            <i class="fab fa-twitter-square"></i>
+            Twitter Url
+        </p>
+        <input type="text" [(ngModel)]="this.profile.form.twitterUrl"/>
+    </div>
+    <div class="profile-link">
+        <p class="label">
+            <i class="fab fa-youtube"></i>
+            Youtube Url
+        </p>
+        <input type="text" [(ngModel)]="this.profile.form.youtubeUrl"/>
+    </div>
+    <div class="profile-link">
+        <p class="label">
+            <i class="fab fa-linkedin"></i>
+            Linkedin Url
+        </p>
+        <input type="text" [(ngModel)]="this.profile.form.linkedinUrl"/>
+    </div>
+    <div class="profile-link">
+        <p class="label">
+            <img src="/assets/misc/gab.png"/>
+            Gab Url
+        </p>
+        <input type="text" [(ngModel)]="this.profile.form.gabUrl"/>
+    </div>
+    <div class="profile-link">
+        <p class="label">
+            <img src="/assets/misc/minds.png"/>
+            Minds Url
+        </p>
+        <input type="text" [(ngModel)]="this.profile.form.mindsUrl"/>
+    </div>
+</div>
+<!-- profile-links -->
+
+<div class="button-wrap">
+    <p class="info easing"
+    [class.active]="this.messageState !== 0"
+    [class.red]="this.messageState === -1"
+    [class.green]="this.messageState === 1"
+    >
+        {{this.message}}
+    </p>
+    <a class="button easing" (click)="this.update()">Update</a>
+</div>

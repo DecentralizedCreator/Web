@@ -1,0 +1,43 @@
+<div class="loading-preview">
+
+  <div class="loading-icon">
+
+    <div class="lambda-icon visible">
+      <div class="lambda-rotater"></div>
+      <img src="/assets/img/lambda.png"/>
+    </div>
+
+  </div>
+
+  <div class="loading-text">
+    <h2 class="easing" [class.visible]="this.search.getStatus() == 0">Type above to Search Creators</h2>
+    <h2 class="easing" [class.visible]="this.search.getStatus() == -1">Could not find Creators</h2>
+    <h2 class="easing" [class.visible]="this.search.getStatus() == 1">Searching for Creators</h2>
+  </div>
+
+  <div class="loading-navigation">
+    <a class="button easing" (click)="this.search.viewNewest()">
+      View Newest Profiles
+    </a>
+    <a class="button easing" (click)="this.search.queryChris()">
+      View Chris' Profiles
+    </a>
+  </div>
+
+  <div class="categories easing">
+    <a
+      class="category easing"
+      *ngFor="let category of this.categories; let i = index;"
+      (click)="this.search.selectCategory(category.name)"
+    >
+      <img [src]="category.photo" />
+      <div class="category-label">
+        <p>
+          {{category.name}}
+        </p>
+      </div>
+    </a>
+
+  </div>
+
+</div>

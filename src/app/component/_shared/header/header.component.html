@@ -1,0 +1,41 @@
+<header>
+  <div class="header-wrap">
+    <a class="brand" routerLink="/">
+      <div class="brand-image easing">
+        <img src="/assets/img/lambda.png"/>
+      </div>
+      <div class="brand-text">
+        <h1>Decentralized Creator</h1>
+        <h2>Helping Content Creators Decentralize Their Income</h2>
+      </div>
+    </a>
+    <a class="header-menu-toggle easing" (click)="this.headerToggle = !this.headerToggle" [class.active]="this.headerToggle">
+      <div class="chevron-circle">
+        <i class="fas fa-chevron-down easing-500"></i>
+      </div>
+    </a>
+    <div class="header-menu easing" (click)="this.headerToggle = false" [class.active]="this.headerToggle">
+      <a class="header-link easing" routerLink="/dashboard" [class.visible]="this.session.state.active">
+        <i class="fas fa-solar-panel"></i> Dashboard
+      </a>
+      <a class="header-link easing visible" routerLink="/search">
+        <i class="fas fa-search"></i> Search Creators
+      </a>
+      <a class="header-link easing" routerLink="/register" [class.visible]="!this.session.state.active">
+        <i class="fas fa-user-plus"></i> Register
+      </a>
+      <a class="header-link easing" routerLink="/login" [class.visible]="!this.session.state.active">
+        <i class="fas fa-key"></i> Login
+      </a>
+      <a class="header-link easing" routerLink="/wallets" [class.visible]="this.session.state.active">
+        <i class="fas fa-wallet"></i> Wallets
+      </a>
+      <a class="header-link easing" routerLink="/settings" [class.visible]="this.session.state.active">
+        <i class="fas fa-cogs"></i> Settings
+      </a>
+      <a class="header-link easing" (click)="this.session.logout()" [class.visible]="this.session.state.active">
+          <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,88 @@
+@import "../../../base.styles.scss";
+
+div.profile-description {
+    width: 100%;
+    background: $g2;
+    padding: 15px;
+    p.label {
+        padding: 0 15px 15px 15px;
+        font-size: 24px;
+        font-weight: 400;
+    }
+    input, textarea {
+        width: calc(100% - 30px);
+        height: 40px;
+        border: none;
+        padding: 0 15px;
+        font-size: 24px;
+        background: none;
+        color: white;
+        font-family: inherit;
+        margin: 0px 15px 15px 15px;
+        background: $g3;
+    }
+    textarea {
+        font-size: 16px;
+        padding: 15px;
+        height: 200px;
+        line-height: 1.5;
+        resize: none;
+    }
+
+    @media (max-width: 960px) {
+        textarea { height: 300px; }
+        padding: 30px 0;
+    }
+}
+
+div.button-wrap {
+    width: 100%;
+    background: $g2;
+    padding: 0 30px 30px 30px;
+    border-bottom: 2px dashed $g4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    p.limit {
+        font-size: 24px;
+        font-weight: bold;
+        margin-right: 30px;
+    }
+
+    p.info {
+        background: $g1;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 400;
+        margin-right: 30px;
+        opacity: 0;
+        pointer-events: none;
+        &.red { color: $red; }
+        &.green { color: $green; }
+        &.active { opacity: 1; }
+    }
+
+    a.button {
+        width: 150px;
+        height: 40px;
+        border-radius: 20px;
+        background: $b5;
+        color: white;
+        border: 2px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            background: $b3;
+            transform: scale(1.1);
+        }
+    }
+
+    @media (max-width: 960px) {
+        display: block;
+        p.limit, p.info { margin: 15px 0; width: 100%; text-align: center; }
+        a.button { width: 100%; margin: 15px 0; }
+    }
+}

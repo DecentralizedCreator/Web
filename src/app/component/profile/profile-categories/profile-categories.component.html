@@ -1,0 +1,29 @@
+<div class="profile-categories">
+  <div class="category-header">
+    <h3>Categories <span class="small">select up to {{this.max}}</span></h3>
+    <div class="counter">
+      <p>{{this.profile.form.categories.length}}</p>
+      <p>/</p>
+      <p>{{this.max}}</p>
+    </div>
+  </div>
+
+  <div class="categories">
+    <a
+      class="category easing"
+      *ngFor="let category of this.categories; let i = index;"
+      (click)="this.addCategory(category); this.updateCategories()"
+      [class.active]="this.hasCategory(category)"
+    >
+      <img [src]="category.photo" />
+      <div class="category-label">
+        <p>
+          {{category.name}}
+        </p>
+        <div class="check easing">
+          <i class="fas fa-check"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+div.label-wrap {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    p.label {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0 5px 0 0;
+    }
+}

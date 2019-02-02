@@ -1,0 +1,77 @@
+@import "../../../base.styles.scss";
+
+div.about {
+    width: 100%;
+    background: $g2;
+    div.about-wrap {
+        width: 100%;
+        min-height: 500px;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        div.about-image {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            div.cryptos {
+                display: flex;
+                align-items: center;
+                width: 230px;
+                height: 180px;
+                position: relative;
+
+                div.crypto {
+                    width: 120px;
+                    height: 120px;
+                    background: $g3;
+                    border: 2px solid white;
+                    color: white;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 48px;
+                    i { margin-left: 2.5px; }
+
+                    position: absolute;
+                    &:nth-of-type(1) {
+                        left: 0px;
+                        top: 60px;
+                    }
+                    &:nth-of-type(2) {
+                        left: 60px;
+                        top: 0px;
+                    }
+                    &:nth-of-type(3) {
+                        left: 110px;
+                        top: 60px;
+                    }
+                }
+            }
+        }
+        div.about-text {
+            width: calc(100% - 600px);
+            padding: 90px 15px;
+            h3 {
+                font-size: 32px;
+                font-weight: 300;
+                margin-bottom: 15px;
+            }
+            p {
+                font-size: 18px;
+                font-weight: 300;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+        }
+        @media (max-width: 960px) {
+            display: block;
+            padding-bottom: 90px;
+            div.about-image, div.about-text { width: 100%; padding: 45px 15px; max-width: 100%; }
+            h3 { text-align: center; font-size: 24px; }
+        }
+    }
+}

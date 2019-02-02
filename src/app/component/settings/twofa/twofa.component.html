@@ -1,0 +1,62 @@
+<h3>Multi Factor Authentication</h3>
+
+<div class="input-row">
+    <div class="input-item">
+        <p>Email {{this.session.state.emailConfirmed ? 'verified' : 'not verified...'}}</p>
+        <a class="verify-button easing" (click)="this.showEmailOverlay()">
+            {{
+                this.session.state.emailConfirmed ? '✓' : 'Verify Email'
+            }}
+        </a>
+    </div>
+    <div class="input-item">
+        <p>{{this.session.state.twofa ? '2FA is active' : '2FA is not active...'}}</p>
+        <a class="verify-button easing" (click)="this.generateCode()">Generate TwoFA code</a>
+    </div>
+</div>
+
+<div class="twofa-qr-overlay easing" [class.active]="this.emailOverlay">
+    <h3>Please enter the 8 Symbol code sent to your email</h3>
+
+    <input type="text" placeholder="8 Symbols" [(ngModel)]="this.emailCode" />
+
+    <div class="error-label" [class.active]="this.emailError" [class.normal]="this.emailLog">
+        <p>{{this.emailErrorMessage}}</p>
+    </div>
+
+    <a class="verify-button red easing" (click)="this.emailOverlay = false">Cancel</a>
+    <a class="verify-button easing" (click)="this.regenerateEmailCode()">Regenerate</a>
+    <a class="verify-button easing" (click)="this.verifyEmailCode()">Confirm</a>
+</div>
+<!-- Email Verification -->
+
+<div class="twofa-qr-overlay easing" [class.active]="this.twofaOverlay1">
+    <h3>Configure your 2FA code for Google Auth or Authy</h3>
+
+    <div class="qrcode-wrap">
+        <qrcode [qrdata]="this.twofaUri" [size]="180" [level]="'M'"></qrcode>
+    </div>
+
+    <p>Your code is: {{this.twofaCode}}</p>
+
+    <a class="verify-button red easing" (click)="this.twofaOverlay1 = false">Cancel</a>
+    <a class="verify-button easing" (click)="this.twofaOverlay2 = true; this.twofaOverlay1 = false;">Confirm</a>
+</div>
+
+<div class="twofa-qr-overlay easing" [class.active]="this.twofaOverlay2">
+    <h3>Please confirm your 2FA with the 6 digit code</h3>
+
+    <input type="number" placeholder="6 digits" [(ngModel)]="this.codeInput" />
+
+    <a class="verify-button red easing" (click)="this.twofaOverlay2 = false">Cancel</a>
+    <a class="verify-button easing" (click)="this.confirmCode()">Confirm</a>
+</div>
+
+<div class="twofa-qr-overlay easing" [class.active]="this.twofaOverlay3">
+    <h3>To update your 2FA, please input the original code</h3>
+
+    <input type="number" placeholder="6 digits" [(ngModel)]="this.codeInputUpdate" />
+
+    <a class="verify-button red easing" (click)="this.twofaOverlay3 = false">Cancel</a>
+    <a class="verify-button easing" (click)="this.generateCode()">Confirm</a>
+</div>

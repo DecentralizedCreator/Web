@@ -1,0 +1,42 @@
+<div class="form-inputs">
+    <div class="form-inputs-wrap easing">
+        <app-register-form-label
+            [label]="'Email'"
+            [state]="this.forms.state.color"
+            [message]="this.forms.returnErrorKey('email')"
+            [active]="this.forms.state.active"
+        ></app-register-form-label>
+        <input type="text" [(ngModel)]="this.forms.registerForm.email"/>
+
+        <app-register-form-label
+            [label]="'Username ([A-Z,0-9,-,.] allowed)'"
+            [state]="this.forms.state.color"
+            [message]="this.forms.returnErrorKey('username')"
+            [active]="this.forms.state.active"
+        ></app-register-form-label>
+        <input type="text" [(ngModel)]="this.forms.registerForm.username"/>
+
+        <app-register-form-label
+            [label]="'Password'"
+            [state]="this.forms.state.color"
+            [message]="this.forms.returnErrorKey('password1')"
+            [active]="this.forms.state.active"
+        ></app-register-form-label>
+        <input type="password" [(ngModel)]="this.forms.registerForm.password1"/>
+
+        <app-register-form-label
+            [label]="'Confirm Password'"
+            [state]="this.forms.state.color"
+            [message]="this.forms.returnErrorKey('password2')"
+            [active]="this.forms.state.active"
+        ></app-register-form-label>
+        <input type="password" [(ngModel)]="this.forms.registerForm.password2"/>
+
+        <div class="button-wrap">
+            <div class="floating-dialog">
+                <app-form-dialog [state]="this.forms.state.color" [message]="this.forms.state.message" [active]="this.forms.state.active"></app-form-dialog>
+            </div>
+            <app-button [label]="'Register'" [type]="'register'" [loading]="this.forms.loading" (click)="this.forms.register()"></app-button>
+        </div>
+    </div>
+</div>

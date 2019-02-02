@@ -1,0 +1,498 @@
+@import "../../../base.styles.scss";
+
+div.profile-tiers {
+    width: 100%;
+    background: $g2;
+    padding: 15px;
+    border-bottom: 2px dashed $g4;
+    display: block;
+
+    h2 {
+        font-size: 32px;
+        font-weight: 300;
+        text-align: center;
+        margin: 45px 0;
+    }
+
+    input#tier-photo-input { display: none; }
+
+    div.label-wrap {
+        display: flex;
+        align-items: center;
+        height: 50px;
+    }
+
+    p.label {
+        font-size: 18px;
+        font-weight: 300;
+        margin: 0 15px 0px 15px;
+    }
+
+    p.label-error {
+        height: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 10px;
+        background: $red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+        margin-top: 2.5px;
+        opacity: 0;
+        pointer-events: none;
+        &.active { opacity: 1; }
+    }
+
+    div.tier-tabs {
+        width: 100%;
+        padding: 60px 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
+        @media(max-width: 960px) {
+            justify-content: center;
+        }
+
+        div.tier-indices {
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+            div.chevrons {
+                position: absolute;
+                left: 0;
+                top: -50px;
+                width: 100%;
+                min-width: 90px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 15px;
+
+                &.inactive { opacity: 0; pointer-events: none; }
+
+                a.shift {
+                    color: white;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    i { margin-left: 1px; }
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+            }
+
+            a.tier-index {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 2px dashed white;
+                margin: 0 15px 0 0;
+                &:last-of-type { margin: 0; }
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                padding-bottom: 2px;
+                &:hover { transform: scale(1.1); }
+                &.active { border: 2px solid white; font-size: 24px; background: $g4; color: $b3; transform: scale(1.2); }
+            }
+        }
+        a.add-tier-button {
+            width: 200px;
+            height: 50px;
+            border-radius: 25px;
+            background: $b5;
+            color: white;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            &:hover { background: $b3; transform: scale(1.1); }
+        }
+    }
+
+    div.profile-tier {
+        display: none;
+        &.active { display: block; }
+    }
+
+    div.tier-header {
+        display: flex;
+        height: 150px;
+        width: 100%;
+        align-items: flex-end;
+        padding: 15px;
+        div.tier-image {
+            width: 120px;
+            height: 120px;
+            background: $g3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 2px dashed $g4;
+
+            img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            a.edit-image {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background: $g1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: white;
+                opacity: 0.1;
+                position: relative;
+                z-index: 4;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+        div.tier-input {
+            width: calc(calc(100% - 150px) - 600px);
+        }
+
+        @media(max-width: 960px) {
+            display: block;
+            height: auto;
+            padding: 0;
+            div.tier-image {
+                margin: 30px auto;
+            }
+            div.tier-input {
+                width: 100%;
+            }
+        }
+    }
+
+    input, textarea {
+        width: calc(100% - 30px);
+        margin: 0 15px;
+        height: 40px;
+        border: none;
+        padding: 0 15px;
+        font-size: 16px;
+        background: none;
+        color: white;
+        font-family: inherit;
+        background: $g3;
+    }
+
+    textarea {
+        padding: 15px;
+        line-height: 1.5;
+        height: 200px;
+        resize: none;
+    }
+
+    div.tier-currency {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+
+        @media(max-width: 960px) {
+            display: block;
+            height: auto;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        div.tier-currency-toggle {
+            width: 100px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+
+            @media(max-width: 960px) {
+                width: 100%;
+                justify-content: center;
+                padding: 0 0 30px 0;
+            }
+
+            a.currency-toggle {
+                width: 80px;
+                height: 80px;
+                background: $g3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                border: 2px solid $g3;
+
+                i {
+                    font-size: 24px;
+                    color: white;
+                }
+
+                margin-right: 15px;
+                &:last-of-type {
+                    margin-right: 0px;
+                }
+
+                &:hover {
+                    border: 2px solid white;
+                }
+
+                &.active {
+                    background: $b3;
+                    border: 2px solid white;
+                }
+            }
+        }
+        div.tier-currency-input {
+            width: calc(100% - 120px);
+            height: 100%;
+            @media(max-width: 960px) {
+                width: 100%;
+                height: 50px;
+            }
+        }
+    }
+
+    div.tier-checkboxes {
+        display: flex;
+        align-items: center;
+        width: 600px;
+        position: relative;
+        top: 10px;
+        @media(max-width: 960px) {
+            width: 100%;
+            display: block;
+            position: relative;
+            top: 0;
+            padding: 15px 0;
+            div.tier-limit, div.tier-shipping {
+                width: 100%;
+                div.tier-limit-input {
+                    margin: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    div.tier-limit, div.tier-shipping {
+        width: 50%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        a.tier-checkbox {
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            p {
+                color: white;
+                font-size: 16px;
+                font-weight: 400;
+            }
+            div.checkbox {
+                width: 25px;
+                height: 25px;
+                border: 2px solid white;
+                border-radius: 50%;
+                margin-right: 15px;
+            }
+            &:hover {
+                div.checkbox { background: $g6; }
+            }
+            &.active {
+                div.checkbox { background: $b3; }
+            }
+        }
+    }
+
+    div.textarea-wrap {
+        position: relative;
+        p {
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            right: 30px;
+            bottom: 15px;
+        }
+    }
+
+    div.button-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 15px;
+
+        &.flex-end {
+            justify-content: flex-end;
+        }
+
+        &.plus-margin {
+            margin: 30px 0;
+        }
+
+        p.info {
+            background: $g1;
+            height: 30px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 400;
+            margin-right: 30px;
+            padding: 5px 20px;
+            opacity: 0;
+            pointer-events: none;
+            &.red { color: $red; }
+            &.green { color: $green; }
+            &.active { opacity: 1; }
+        }
+
+        a.button-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 300;
+            margin-right: 15px;
+            color: white;
+        }
+
+        a.button {
+            margin: 15px 15px 15px 0px;
+            width: 180px;
+            height: 40px;
+            border-radius: 20px;
+            background: $b5;
+            color: white;
+            border: 2px solid white;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                background: $b3;
+                transform: scale(1.1);
+            }
+            &:first-of-type {
+                margin-right: 30px;
+            }
+            &.red {
+                background: lighten($red, 5%);
+                &:hover {
+                    background: lighten($red, 2.5%);
+                }
+            }
+        }
+
+        @media(max-width: 960px) {
+            display: block;
+            padding: 30px 0;
+            a.button-label,
+            a.button {
+                margin: 0 0 15px 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+div.tier-expiry {
+    padding: 15px 0;
+    p.label {
+        margin-bottom: 10px;
+        span.eta {
+            font-weight: bold;
+        }
+    }
+    div.input-roll {
+        display: flex;
+        align-items: center;
+        input {
+            width: calc(100% - 480px);
+        }
+        a.button {
+            margin: 0 10px;
+            width: 100px;
+            height: 30px;
+            border-radius: 15px;
+            border: 2px solid white;
+            background: $b5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            &:last-of-type {
+                margin-right: 15px;
+            }
+        }
+
+        @media(max-width: 960px) {
+            display: block;
+            input { width: calc(100% - 30px); }
+            a.button {
+                margin: 10px;
+                width: calc(100% - 30px);
+            }
+        }
+    }
+}
+
+div.external-payout {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    a.tier-checkbox {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        width: 300px;
+        p {
+            color: white;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        div.checkbox {
+            width: 25px;
+            height: 25px;
+            border: 2px solid white;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        &:hover {
+            div.checkbox { background: $g6; }
+        }
+        &.active {
+            div.checkbox { background: $b3; }
+        }
+    }
+
+    div.external-input {
+        width: calc(100% - 315px);
+    }
+}

@@ -1,0 +1,101 @@
+<h3>Shipping Information</h3>
+
+<div class="input-shipping-wrap">
+    <div class="input">
+        <div class="label-wrap">
+            <p class="label">First Name</p>
+            <p class="info easing" [class.active]="this.shipping.returnErrorKey('firstName').length > 0">
+            {{this.shipping.returnErrorKey('firstName')}}
+            </p>
+        </div>
+
+        <input type="text" [(ngModel)]="this.shipping.form.firstName" />
+    </div>
+    <div class="input">
+        <div class="label-wrap">
+            <p class="label">Last Name</p>
+            <p class="info easing" [class.active]="this.shipping.returnErrorKey('lastName').length > 0">
+            {{this.shipping.returnErrorKey('lastName')}}
+            </p>
+        </div>
+        <input type="text" [(ngModel)]="this.shipping.form.lastName"/>
+    </div>
+</div>
+
+<div class="input-shipping-wrap">
+    <div class="input">
+        <div class="label-wrap">
+            <p class="label">Country</p>
+            <p class="info easing" [class.active]="this.shipping.returnErrorKey('country').length > 0">
+            {{this.shipping.returnErrorKey('country')}}
+            </p>
+        </div>
+        <input type="text" [(ngModel)]="this.shipping.form.country" />
+    </div>
+    <div class="input">
+        <div class="label-wrap">
+            <p class="label">Postal Code</p>
+            <p class="info easing" [class.active]="this.shipping.returnErrorKey('postalCode').length > 0">
+            {{this.shipping.returnErrorKey('postalCode')}}
+            </p>
+        </div>
+        <input type="text" [(ngModel)]="this.shipping.form.postalCode" />
+    </div>
+</div>
+
+<div class="input-shipping-wrap">
+    <div class="input">
+        <div class="label-wrap">
+            <p class="label">Address Line 1</p>
+            <p class="info easing" [class.active]="this.shipping.returnErrorKey('address1').length > 0">
+            {{this.shipping.returnErrorKey('address1')}}
+            </p>
+        </div>
+        <input type="text" [(ngModel)]="this.shipping.form.address1" />
+    </div>
+    <div class="input">
+        <div class="label-wrap">
+            <p class="label">Address Line 2</p>
+            <p class="info easing" [class.active]="this.shipping.returnErrorKey('address2').length > 0">
+            {{this.shipping.returnErrorKey('address2')}}
+            </p>
+        </div>
+        <input type="text" [(ngModel)]="this.shipping.form.address2" />
+    </div>
+</div>
+
+<div class="input-shipping-wrap">
+    <div class="input">
+        <div class="label-wrap">
+            <p class="label">City</p>
+            <p class="info easing" [class.active]="this.shipping.returnErrorKey('city').length > 0">
+            {{this.shipping.returnErrorKey('city')}}
+            </p>
+        </div>
+        <input type="text" [(ngModel)]="this.shipping.form.city" />
+    </div>
+    <div class="input">
+        <div class="label-wrap">
+            <p class="label">State/Province/Territory/Region</p>
+            <p class="info easing" [class.active]="this.shipping.returnErrorKey('region').length > 0">
+            {{this.shipping.returnErrorKey('region')}}
+            </p>
+        </div>
+        <input type="text" [(ngModel)]="this.shipping.form.region" />
+    </div>
+</div>
+
+<div class="button-wrap">
+    <p class="status-update easing"
+        [class.active]="this.shipping.messageState !== 0"
+        [class.red]="this.shipping.messageState == -1"
+        [class.green]="this.shipping.messageState == 1"
+    >
+        <i class="far fa-check-circle"></i>
+        {{this.shipping.message}}
+    </p>
+    <a class="submit-button easing" (click)="this.shipping.updateShipping()">
+        Update Shipping Information
+    </a>
+
+</div>

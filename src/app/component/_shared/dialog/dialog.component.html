@@ -1,0 +1,14 @@
+<div class="dialog-wrap">
+  <div
+    class="dialog easing-500"
+    *ngFor="let e of this.error.errors; let i = index;"
+    [class.red]="e.color == 'red'"
+    [class.green]="e.color == 'green'"
+    [class.invisible]="!e.visible"
+  >
+    <p>{{e.message}}</p>
+    <a class="button easing-500" (click)="this.error.removeError(i)">
+      Dismiss
+    </a>
+  </div>
+</div>

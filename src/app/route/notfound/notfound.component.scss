@@ -1,0 +1,48 @@
+@import "../../base.styles.scss";
+
+div.page-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    height: calc(100vh - 70px);
+    background: $g2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-size: 32px;
+        font-weight: 400;
+        width: 100%;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    div.links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    a.link {
+        border-radius: 20px;
+        height: 40px;
+        width: 100%;
+        max-width: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+        margin: 15px;
+        color: white;
+        border: 2px solid white;
+        background: $b5;
+        font-size: 18px;
+        i { margin-right: 5px; }
+        &:hover {
+            transform: scale(1.125);
+            background: $b3;
+        }
+    }
+}

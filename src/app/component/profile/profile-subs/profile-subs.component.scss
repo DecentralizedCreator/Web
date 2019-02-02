@@ -1,0 +1,406 @@
+@import "../../../base.styles.scss";
+
+div.sub-tier {
+    margin: 30px;
+    padding: 15px 30px;
+    width: calc(100% - 60px);
+    background: $g3;
+    div.sub-tier-header {
+        display: flex;
+        align-items: center;
+        div.image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid white;
+            overflow: hidden;
+            margin-right: 30px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        div.text {
+            h3 {
+                font-size: 18px;
+                font-weight: 400;
+            }
+        }
+
+        @media(max-width: 960px) {
+            flex-direction: column;
+            justify-content: center;
+            div.image {
+                margin: 30px;
+            }
+        }
+    }
+
+    div.subs {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 15px -15px;
+    }
+
+    div.sub {
+        width: calc(50% - 30px);
+
+        display: flex;
+        margin: 15px;
+        background: $g4;
+        padding: 15px;
+
+        @media(max-width: 960px) {
+            width: 100%;
+            margin: 0;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.user {
+            width: calc(100% - 180px);
+            display: flex;
+            align-items: center;
+
+            @media(max-width: 960px) {
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                div.image {
+                    margin: 15px 0;
+                }
+                div.text {
+                    margin: 15px 0;
+                    h3, p {
+                        text-align: center;
+                        margin: 5px 0;
+                    }
+                }
+            }
+
+            div.image {
+                width: 40px;
+                height: 40px;
+                border: 2px solid white;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            div.text {
+                padding-left: 15px;
+                @media(max-width: 960px) {
+                    padding: 0;
+                }
+                h3 {
+                    font-size: 18px;
+                    font-weight: 400;
+                    &:last-of-type { margin: 0 0 5px 0; }
+                }
+                p {
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        div.actions {
+            width: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            a.button {
+                margin: 7.5px 0;
+                width: 150px;
+                height: 30px;
+                border-radius: 15px;
+                border: 2px solid white;
+                background: $b5;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                &:hover {
+                    transform: scale(1.125);
+                    background: $b3;
+                }
+                &.red {
+                    background: $red;
+                    &:hover {
+                        background: darken($red, 5%);
+                    }
+                }
+                &.green {
+                    background: $green;
+                    &:hover {
+                        background: darken($green, 5%);
+                    }
+                }
+
+                &.invisible { display: none; }
+            }
+        }
+    }
+}
+
+div.sub-manage-overlay {
+    position: fixed;
+    left: calc(50% - 400px);
+    top: calc(50% - 200px);
+    width: 800px;
+    height: 400px;
+    background: $g4;
+    z-index: 1111;
+    padding: 30px;
+
+    opacity: 0;
+    pointer-events: none;
+    &.active {
+        opacity: 1;
+        pointer-events: visible;
+    }
+
+    @media(max-width: 960px) {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    a.close-button {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: $red;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            transform: scale(1.25);
+            background: darken($red, 5%);
+        }
+    }
+
+    div.manage-tab {
+        display: none;
+        &.active {
+            display: block;
+            &.shipping {
+                display: flex;
+                flex-wrap: wrap;
+
+                div.item {
+                    width: 50%;
+                    padding: 5px;
+                    p.label {
+                        font-size: 14px;
+                        font-weight: bold;
+                        margin: 0 0 5px 0;
+                    }
+                    p.value {
+                        font-size: 18px;
+                    }
+                    @media(max-width: 960px) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    div.sub-manage-header {
+        width: calc(100% - 180px);
+        display: flex;
+        align-items: center;
+        div.image {
+            width: 60px;
+            height: 60px;
+            border: 2px solid white;
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        div.text {
+            padding-left: 15px;
+            @media(max-width: 960px) {
+                padding: 0;
+            }
+            h3 {
+                font-size: 18px;
+                font-weight: 400;
+                &:last-of-type { margin: 0 0 5px 0; }
+            }
+            p {
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+
+        @media(max-width: 960px) {
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            div.image {
+                margin: 15px 0;
+            }
+        }
+    }
+
+    div.expiry-input {
+        p.label {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            span.eta {
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+        div.input {
+            width: 100%;
+            input {
+                width: 100%;
+                height: 40px;
+                border: none;
+                padding: 0 15px;
+                margin: 0 0 0 0;
+                font-size: 16px;
+                background: none;
+                color: white;
+                font-family: inherit;
+                background: $g3;
+            }
+        }
+    }
+
+    div.expiry-buttons {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a.button {
+            width: calc(20% - 15px);
+            height: 30px;
+            border-radius: 15px;
+            border: 2px solid white;
+            background: $b5;
+            color: White;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                background: $b1;
+                transform: scale(1.25);
+            }
+        }
+        @media(max-width: 960px) {
+            height: auto;
+            flex-direction: column;
+            a.button {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    }
+
+    div.button-wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 15px 0;
+
+        p.info {
+            margin-right: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 15px;
+            background: $g1;
+            border-radius: 30px;
+            opacity: 0;
+            pointer-events: none;
+            &.active { opacity: 1; }
+        }
+
+        a.button {
+            width: 180px;
+            height: 40px;
+            border-radius: 20px;
+            border: 2px solid white;
+            background: $b5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                background: $b1;
+                transform: scale(1.125);
+            }
+        }
+    }
+
+    div.buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 15px 0;
+
+        @media(max-width: 960px) {
+            flex-direction: column;
+        }
+
+        a.button {
+            margin-right: 15px;
+            &:last-of-type { margin-right: 0; }
+            @media(max-width: 960px) {
+                margin: 5px;
+                width: 100%;
+            }
+            width: 150px;
+            height: 30px;
+            border-radius: 15px;
+            border: 2px solid white;
+            background: $b5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            &:hover {
+                transform: scale(1.125);
+                background: $b3;
+            }
+            &.red {
+                background: $red;
+                &:hover {
+                    background: darken($red, 5%);
+                }
+            }
+            &.green {
+                background: $green;
+                &:hover {
+                    background: darken($green, 5%);
+                }
+            }
+
+            &.invisible { display: none; }
+        }
+    }
+}

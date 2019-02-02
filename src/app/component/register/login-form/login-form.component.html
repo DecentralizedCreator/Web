@@ -1,0 +1,34 @@
+<div class="form-inputs">
+    <div class="form-inputs-wrap easing">
+        <app-register-form-label
+            [label]="'Email'"
+            [state]="this.forms.state.color"
+            [message]="this.forms.returnErrorKey('email')"
+            [active]="this.forms.state.active"
+        ></app-register-form-label>
+        <input type="text" [(ngModel)]="this.forms.loginForm.email"/>
+
+        <app-register-form-label
+            [label]="'Password'"
+            [state]="this.forms.state.color"
+            [message]="this.forms.returnErrorKey('password')"
+            [active]="this.forms.state.active"
+        ></app-register-form-label>
+        <input type="password" [(ngModel)]="this.forms.loginForm.password"/>
+
+        <app-register-form-label
+            [label]="'OTP 2FA Code (if active)'"
+            [state]="this.forms.state.color"
+            [message]="this.forms.returnErrorKey('token')"
+            [active]="this.forms.state.active"
+        ></app-register-form-label>
+        <input type="password" [(ngModel)]="this.forms.loginForm.token"/>
+
+        <div class="button-wrap">
+            <div class="floating-dialog">
+                <app-form-dialog [state]="this.forms.state.color" [message]="this.forms.state.message" [active]="this.forms.state.active"></app-form-dialog>
+            </div>
+            <app-button [label]="'Login'" [type]="'register'" [loading]="this.forms.loading" (click)="this.forms.login()"></app-button>
+        </div>
+    </div>
+</div>

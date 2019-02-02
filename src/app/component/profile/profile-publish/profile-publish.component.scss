@@ -1,0 +1,46 @@
+@import "../../../base.styles.scss";
+
+div.profile-publish {
+    width: 100%;
+    background: $g2;
+
+    div.button-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 180px;
+
+        @media (max-width: 960px) {
+            flex-wrap: wrap;
+            height: auto;
+            padding-bottom: 90px;
+        }
+    }
+
+    a.preview-button {
+        font-size: 24px;
+        color: white;
+        padding: 15px;
+        margin-right: 15px;
+        &:hover {
+            font-size: 32px;
+        }
+    }
+
+    a.publish-button {
+        width: 320px;
+        height: 60px;
+        border-radius: 30px;
+        background: $b5;
+        color: white;
+        border: 2px solid white;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            background: $b3;
+            transform: scale(1.1);
+        }
+    }
+}

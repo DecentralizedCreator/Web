@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', 'Arial', 'Monospace';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  color: white;
+  background: #131313;
+  overflow-y: auto;
+  overflow-x: hidden;
+  letter-spacing: 0.5px;
+}
+
+input, textarea { font-family: inherit; }

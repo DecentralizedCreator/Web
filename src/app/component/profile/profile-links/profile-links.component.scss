@@ -1,0 +1,97 @@
+@import "../../../base.styles.scss";
+
+div.profile-links {
+    width: 100%;
+    background: $g2;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    div.profile-link {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        p.label {
+            padding-left: 15px;
+            width: 150px;
+            img {
+                height: 20px;
+                margin-right: 15px;
+                position: relative;
+                top: 5px;
+            }
+            i {
+                text-align: center;
+                font-size: 18px;
+                margin-right: 15px;
+            }
+        }
+        input {
+            margin: 15px;
+            width: calc(100% - 180px);
+            height: 40px;
+            border: none;
+            padding: 0 15px;
+            font-size: 18px;
+            background: none;
+            color: white;
+            font-family: inherit;
+            background: $g3;
+        }
+    }
+    @media (max-width: 960px) {
+        display: block;
+        div.profile-link {
+            width: 100%;
+            display: block;
+            padding: 15px 0;
+            p { padding: 0; margin: 0 0 15px 0; }
+            input { width: 100%; margin: 0 0 30px 0; }
+        }
+    }
+}
+
+div.button-wrap {
+    width: 100%;
+    background: $g2;
+    padding: 0 30px 30px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 2px dashed $g4;
+
+    p.info {
+        background: $g1;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 400;
+        margin-right: 30px;
+        opacity: 0;
+        pointer-events: none;
+        &.red { color: $red; }
+        &.green { color: $green; }
+        &.active { opacity: 1; }
+    }
+
+    a.button {
+        width: 150px;
+        height: 40px;
+        border-radius: 20px;
+        background: $b5;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+        &:hover {
+            background: $b3;
+            transform: scale(1.1);
+        }
+    }
+    @media (max-width: 960px) {
+        display: block;
+        padding: 15px;
+        p.info { margin: 0; padding: 15px; text-align: center; }
+        a.button { width: 100%; margin: 0 0 30px 0; }
+    }
+}

@@ -1,0 +1,57 @@
+@import "../../../base.styles.scss";
+
+div.profile-goals {
+    width: 100%;
+    background: $g2;
+    padding: 15px;
+    border-bottom: 2px dashed $g4;
+    display: flex;
+    align-items: center;
+    div.profile-goal {
+        width: calc(100% / 2);
+        position: relative;
+        p {
+            padding: 0 15px;
+            font-size: 18px;
+            font-weight: 300;
+            margin: 0 0 5px 0;
+        }
+        input {
+            margin: 0 15px;
+            width: calc(100% - 30px);
+            height: 40px;
+            border: none;
+            padding: 0 15px;
+            font-size: 18px;
+            background: none;
+            color: white;
+            font-family: inherit;
+            background: $g3;
+        }
+        a.check-button {
+            position: absolute;
+            right: 30px;
+            top: 35px;
+            width: 25px;
+            height: 25px;
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            background: $b5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i { font-size: 12px; padding-top: 2px; }
+            &:hover {
+                transform: scale(1.25);
+                background: $b3;
+            }
+        }
+    }
+
+    @media (max-width: 960px) {
+        display: block;
+        padding: 0;
+        div.profile-goal { width: 100%; padding: 15px 0; }
+    }
+}

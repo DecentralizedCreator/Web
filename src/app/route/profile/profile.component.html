@@ -1,0 +1,36 @@
+<div class="page-content">
+    <div class="page-wrap">
+        <div class="profile-tabs">
+            <a class="profile-tab easing" [class.active]="this.activeTab == 'profile'" (click)="this.activeTab = 'profile'">
+                Profile
+            </a>
+            <a class="profile-tab easing" [class.active]="this.activeTab == 'tiers'" (click)="this.activeTab = 'tiers'">
+                Subscriber Tiers
+            </a>
+            <a class="profile-tab easing" [class.active]="this.activeTab == 'manage'" (click)="this.activeTab = 'manage'">
+                Manage Subscribers
+            </a>
+        </div>
+
+        <div class="profile-content" [class.active]="this.activeTab == 'profile'">
+            <app-profile-banner></app-profile-banner>
+            <app-profile-header></app-profile-header>
+            <app-profile-url></app-profile-url>
+            <app-profile-goals></app-profile-goals>
+            <app-profile-meta></app-profile-meta>
+            <app-profile-links></app-profile-links>
+            <app-profile-categories></app-profile-categories>
+            <app-profile-description></app-profile-description>
+        </div>
+
+        <div class="profile-content" [class.active]="this.activeTab == 'tiers'">
+            <app-profile-tiers></app-profile-tiers>
+        </div>
+
+        <div class="profile-content" [class.active]="this.activeTab == 'manage'">
+            <app-profile-subs></app-profile-subs>
+        </div>
+
+        <app-profile-publish></app-profile-publish>
+    </div>
+</div>

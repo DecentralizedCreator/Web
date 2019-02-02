@@ -1,0 +1,69 @@
+@import "../../base.styles.scss";
+
+div.page-wrap {
+    width: 100%;
+    max-width: 1200px;
+    min-height: $page-height;
+    margin: auto;
+    background: $g2;
+    padding: 0 0 60px 0;
+}
+
+h2 {
+    padding: 30px;
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-align: center;
+    i {
+        margin-right: 5px;
+        position: relative;
+        top: 2.5px;
+    }
+}
+
+div.video-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+h4 {
+    padding: 30px;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: center;
+
+    @media (max-width: 960px) {
+        font-size: 18px;
+    }
+}
+
+div.item {
+    padding: 15px;
+    display: flex;
+    i {
+        margin: 20px 15px;
+        font-size: 24px;
+        &.green { color: $green; }
+    }
+    div.item-text {
+        padding: 15px;
+        h3 {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin: 0 0 5px 0;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        a {
+            color: $b1;
+            i { margin: 0 5px; font-size: 18px; }
+            margin-right: 5px;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<div class="profile-goals">
+    <!--
+        <div class="profile-goal">
+            <p class="label">Total BTC Goal</p>
+            <input type="number" placeholder="BTC"
+            [(ngModel)]="this.profile.form.btcGoal"
+            (input)="this.updateGoals()"
+            />
+        </div>
+
+        <div class="profile-goal">
+            <p class="label">Total XMR Goal</p>
+            <input type="number" placeholder="XMR"
+            [(ngModel)]="this.profile.form.xmrGoal"
+            (input)="this.updateGoals()"
+            />
+        </div>
+    -->
+
+    <div class="profile-goal">
+        <p class="label">Total ETH Goal</p>
+        <input type="number" placeholder="ETH"
+        [(ngModel)]="this.profile.form.ethGoal"
+        (input)="this.updateGoals()"
+        />
+    </div>
+    <div class="profile-goal">
+        <p class="label">Subscriber Goal</p>
+        <input type="number" placeholder="# of People"
+        [(ngModel)]="this.profile.form.subscriberGoal"
+        (input)="this.updateGoals()"
+        />
+    </div>
+</div>
+<!-- profile-goals -->

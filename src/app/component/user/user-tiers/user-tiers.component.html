@@ -1,0 +1,143 @@
+<div class="user-tiers">
+    <div class="tier-list">
+        <a class="tier-select easing"
+        *ngFor="let tier of this.user.tiers; let i = index;"
+        [class.active]="this.activeTier == i" (click)="this.switchTier(i);"
+        >
+            {{tier.title}}
+        </a>
+    </div>
+
+    <div class="tier-loading-state easing" [class.active]="this.loading">
+        <div class="lambda">
+            <div class="lambda-rotater"></div>
+            <img src="/assets/img/lambda.png"/>
+        </div>
+    </div>
+
+    <div class="tier" *ngFor="let tier of this.user.tiers; let i = index;" [class.active]="this.activeTier == i">
+
+        <div class="tier-header">
+            <div class="tier-photo">
+                <img [src]="this.user.getImage(tier.photo)" />
+            </div>
+            <h3>{{tier.title}}</h3>
+            <div class="tier-backers">
+                {{tier.limit ?
+                    (tier.subscriber.length + ' of ' + tier.limit + ' Subscribed')
+                    :
+                    (tier.subscriber.length + ' Subscribed')
+                }}
+            </div>
+        </div>
+        <!-- div.tier-header -->
+
+        <div class="tier-purchase">
+
+            <div class="tier-cost">
+                <div class="crypto-icon">
+                    <i class="{{this.user.getCurrencyIcon(tier.currency)}}"></i>
+                </div>
+                <h3>{{tier.amount}} {{tier.currency}}</h3>
+            </div>
+            <a class="tier-purchase-button easing" (click)="this.confirmation = true;" [class.visible]="!this.checkSubscription(tier.subscriber) && this.session.state.active">
+                Subscribe
+            </a>
+
+            <h3 class="subbed" [class.visible]="this.checkSubscription(tier.subscriber)">
+                Subscribed
+                <i class="far fa-check-circle"></i>
+            </h3>
+            <!-- tier purchase layer 1 -->
+
+            <div class="tier-purchase-confirm easing" [class.active]="this.confirmation">
+                <h3>Confirm Subscription</h3>
+                <h4>To the tier: {{tier.title}}</h4>
+                <div class="confirm-info-row">
+                    <div class="confirm-info-item">
+                        <div class="crypto-qr">
+                            <qrcode [qrdata]="this.getWallet(tier.currency)" [size]="120" [level]="'M'"></qrcode>
+                        </div>
+                        <div class="info-text">
+                            <div class="amount big address">
+                                <div class="label">Address</div>
+                                {{this.getWallet(tier.currency)}}
+                            </div>
+                            <div class="amount big">
+                                <div class="label">Balance</div>
+                                {{this.getWalletBalance(tier.currency)}} {{tier.currency}}
+                            </div>
+                            <div class="amount big">
+                                <div class="label">After TX</div>
+                                {{this.getWalletBalance(tier.currency) - tier.amount - 0.05}} {{tier.currency}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="confirm-info-item">
+                        <div class="crypto-icon">
+                            <i class="{{this.user.getCurrencyIcon(tier.currency)}}"></i>
+                        </div>
+                        <div class="info-text">
+                            <div class="amount">
+                                <div class="label">Cost</div>
+                                {{tier.amount}} {{tier.currency}}
+                            </div>
+                            <div class="amount">
+                                <div class="label">Fee</div>
+                                0.05 {{tier.currency}}
+                            </div>
+                            <div class="amount">
+                                <div class="label">Total</div>
+                                {{tier.amount + 0.05}} {{tier.currency}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- confirm-info-items -->
+
+                <div class="centered-button-row">
+
+                    <div class="error-label easing" [class.active]="this.subscribeError">
+                        <p>Something went wrong with this transaction...</p>
+                    </div>
+
+                    <a class="button red easing" (click)="this.confirmation = false">
+                        Cancel
+                    </a>
+
+                    <a class="button easing" (click)="this.confirmSubscription(tier)">
+                        Pay with DC Wallet
+                    </a>
+
+                    <a class="button easing" (click)="this.metamask.subscribe(tier)">
+                        <img src="/assets/misc/metamask.png"/> Pay with Metamask
+                    </a>
+
+                </div>
+
+            </div>
+            <!-- confirm purchase -->
+
+            <div class="tier-purchase-confirm centered easing" [class.active]="this.subscribed">
+                <h3>You Subscribed to {{tier.title}}</h3>
+                <h4>Thanks for supporting {{this.user.data.name}}</h4>
+
+                <div class="centered-button-row margin">
+                    <a class="button easing" (click)="this.refreshPage()">
+                        Okay
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <!-- div.tier-purchase -->
+
+        <div class="tier-about">
+            <h3>About this Tier</h3>
+            <textarea class="td-te">{{tier.description}}</textarea>
+        </div>
+        <!-- div.tier-about -->
+
+    </div>
+</div>
+<!-- user-tiers -->

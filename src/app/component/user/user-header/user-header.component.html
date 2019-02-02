@@ -1,0 +1,13 @@
+<div class="user-header">
+    <div class="user-meta-label" [class.visible]="this.user.data.nsfw">
+        NSFW
+    </div>
+    <div class="user-picture">
+        <img [src]="this.user.getPhoto()"/>
+    </div>
+    <div class="user-header-text">
+        <h2>{{this.user.data.name}}</h2>
+        <h3>{{this.user.data.tagline}}</h3>
+    </div>
+</div>
+<!-- user-header -->

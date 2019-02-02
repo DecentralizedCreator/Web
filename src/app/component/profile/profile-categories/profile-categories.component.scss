@@ -1,0 +1,121 @@
+@import "../../../base.styles.scss";
+
+div.profile-categories {
+    width: 100%;
+    background: $g2;
+    padding: 15px;
+    border-bottom: 2px dashed $g4;
+}
+
+div.category-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    div.counter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 40px;
+        background: $g4;
+        border-radius: 5px;
+        p {
+            font-size: 18px;
+            margin: 5px;
+            font-weight: bold;
+        }
+    }
+}
+
+h3 {
+    padding: 15px;
+    font-size: 24px;
+    font-weight: 400;
+    span.small {
+        font-size: 14px;
+        font-weight: bold;
+        padding: 5px 15px;
+        background: $g4;
+        border-radius: 5px;
+        margin-left: 5px;
+    }
+}
+
+div.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+a.category {
+    width: calc(calc(100% / 3) - 30px);
+    height: 180px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 2px solid transparent;
+
+    @media (max-width: 960px) {
+        width: 100%;
+    }
+
+    img {
+        width: 110%;
+    }
+    div.category-label {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        background: white;
+        color: $g1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+        p {
+            font-size: 18px;
+            font-weight: 400;
+        }
+        div.check {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            border: 2px solid $b3;
+            color: $b3;
+            i { font-size: 12px; }
+        }
+    }
+    &:hover {
+        transform: scale(1.125);
+        div.category-label {
+            div.check {
+                transform: scale(1.125);
+                background: $b3;
+                border: 2px solid $b3;
+                color: white;
+            }
+        }
+    }
+    &.active {
+        border: 2px solid white;
+        div.category-label {
+            div.check {
+                transform: scale(1.125);
+                background: $green;
+                border: 2px solid $green;
+                color: white;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<div class="big-input">
+  <input type="text" placeholder="Search Projects and Creators..." [(ngModel)]="this.search.input" (input)="this.delayedQuery()"/>
+
+  <a class="filter-toggle easing-500" (click)="this.showFilters = !this.showFilters" [class.active]="this.showFilters">
+    <i class="fas fa-filter"></i>
+  </a>
+
+  <div class="filters easing" [class.active]="this.showFilters">
+
+    <div class="filters-row">
+      <a class="checkbox-input" (click)="this.search.nsfw = !this.search.nsfw; this.delayedQuery();" [class.active]="this.search.nsfw">
+        <div class="checkbox easing"></div>
+        <p>NSFW</p>
+      </a>
+      <a class="checkbox-input" (click)="this.search.censored = !this.search.censored; this.delayedQuery();" [class.active]="this.search.censored">
+        <div class="checkbox easing"></div>
+        <p>Censored</p>
+      </a>
+    </div>
+
+    <div class="filters-row wrapped">
+      <a
+        class="category-input"
+        *ngFor="let category of this.categories"
+        (click)="this.search.category == category.name ? this.search.category = '' : this.search.category = category.name; this.delayedQuery();"
+        [class.active]="this.search.category == category.name">
+        <div class="checkbox easing">
+          <i class="fas fa-check easing"></i>
+        </div>
+        <p>{{category.name}}</p>
+      </a>
+    </div>
+
+  </div>
+
+</div>

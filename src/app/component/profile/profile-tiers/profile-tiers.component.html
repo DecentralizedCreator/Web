@@ -1,0 +1,175 @@
+<div class="profile-tiers">
+    <div class="tier-tabs">
+        <div class="tier-indices">
+            <div class="chevrons easing" [class.inactive]="this.tiers.length == 0 || this.tiers.length == 1">
+                <a class="shift shift-left easing" (click)="this.shiftLeft()">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <a class="shift shift-right easing" (click)="this.shiftRight()">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            <a
+                class="tier-index easing"
+                *ngFor="let tier of this.tiers; let i = index;"
+                [class.active]="this.activeTier == i"
+                (click)="this.activeTier = i"
+            >
+            {{i + 1}}
+            </a>
+        </div>
+        <a class="add-tier-button easing" (click)="this.createPlaceholder()">
+            Add New Tier
+        </a>
+    </div>
+
+    <input type="file" name="photo" accept="image/*" id="tier-photo-input"/>
+
+    <div class="profile-tier" *ngFor="let tier of this.tiers; let i = index;" [class.active]="this.activeTier == i">
+        <div class="tier-header">
+            <div class="tier-image">
+                <img [src]="this.photoImage(i)" />
+                <a class="edit-image easing" (click)="this.clickEvent()">
+                    Edit<br/>
+                    Photo
+                </a>
+                <app-loading-state [visible]="this.photoLoading"></app-loading-state>
+            </div>
+            <div class="tier-input">
+                <div class="label-wrap">
+                    <p class="label">Tier Title</p>
+                    <p
+                        class="label-error easing"
+                        [class.active]="this.returnErrorKey(i, 'title').length > 0"
+                    >{{this.returnErrorKey(i, 'title')}}</p>
+                </div>
+                <input type="text" [(ngModel)]="tier.title"/>
+            </div>
+            <div class="tier-checkboxes">
+                <div class="tier-limit">
+                    <a class="tier-checkbox easing" [class.active]="tier.hasLimit" (click)="tier.hasLimit = !tier.hasLimit">
+                        <div class="checkbox easing"></div>
+                        <p>Limit</p>
+                    </a>
+                    <div class="tier-limit-input">
+                        <input type="text" [(ngModel)]="tier.limit"/>
+                    </div>
+                </div>
+                <div class="tier-shipping">
+                    <a class="tier-checkbox easing" [class.active]="tier.requireShipping" (click)="tier.requireShipping = !tier.requireShipping">
+                        <div class="checkbox easing"></div>
+                        <p>Requires Shipping Address?</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="label-wrap">
+            <p class="label">Tier Description</p>
+            <p
+                class="label-error easing"
+                [class.active]="this.returnErrorKey(i, 'description').length > 0"
+            >{{this.returnErrorKey(i, 'description')}}</p>
+        </div>
+
+        <div class="textarea-wrap">
+            <textarea class="td-te" [(ngModel)]="tier.description"></textarea>
+            <p>{{tier.description ? tier.description.length : '0'}}/1000</p>
+        </div>
+
+        <div class="tier-expiry">
+            <p class="label">
+                Expiration in UNIX,
+                <span class="eta">
+                    ETA: {{this.utility.getETA(tier.expiryTime)}}
+                </span>
+            </p>
+            <div class="input-roll">
+                <input type="number" [(ngModel)]="tier.expiryTime"/>
+                <a class="button easing" (click)="this.addTime(i, 86400000)">
+                    Add day
+                </a>
+                <a class="button easing" (click)="this.addTime(i, 86400000 * 7)">
+                    Add week
+                </a>
+                <a class="button easing" (click)="this.addTime(i, 86400000 * 30)">
+                    Add month
+                </a>
+                <a class="button easing" (click)="this.addTime(i, 86400000 * 365)">
+                    Add year
+                </a>
+            </div>
+
+        </div>
+
+        <div class="tier-currency">
+            <div class="tier-currency-toggle">
+                <!--
+                    <a class="currency-toggle easing" [class.active]="tier.currency == 'BTC'" (click)="tier.currency = 'BTC'">
+                        <i class="fab fa-bitcoin"></i>
+                    </a>
+
+                    <a class="currency-toggle easing" [class.active]="tier.currency == 'XMR'" (click)="tier.currency = 'XMR'">
+                        <i class="fab fa-monero"></i>
+                    </a>
+                -->
+
+                <a class="currency-toggle easing" [class.active]="tier.currency == 'ETH'" (click)="tier.currency = 'ETH'">
+                    <i class="fab fa-ethereum"></i>
+                </a>
+            </div>
+            <div class="tier-currency-input">
+                <div class="label-wrap">
+                    <p class="label">Amount</p>
+                    <p
+                        class="label-error easing"
+                        [class.active]="this.returnErrorKey(i, 'amount').length > 0"
+                    >{{this.returnErrorKey(i, 'amount')}}</p>
+                </div>
+                <input type="text" [(ngModel)]="tier.amount"/>
+            </div>
+        </div>
+
+        <div class="label-wrap">
+            <p class="label">External Payout</p>
+            <p
+                class="label-error easing"
+                [class.active]="this.returnErrorKey(i, 'externalPayout').length > 0"
+            >{{this.returnErrorKey(i, 'externalPayout')}}</p>
+        </div>
+
+        <div class="external-payout">
+            <a class="tier-checkbox easing" [class.active]="tier.externalPayout" (click)="tier.externalPayout = !tier.externalPayout">
+                <div class="checkbox easing"></div>
+                <p>Pay to an external address</p>
+            </a>
+            <div class="external-input">
+                <input type="text" [(ngModel)]="tier.externalAddress"/>
+            </div>
+        </div>
+
+        <div class="button-wrap">
+            <p class="info easing"
+            [class.active]="this.messageState !== 0"
+            [class.red]="this.messageState === -1"
+            [class.green]="this.messageState === 1"
+            >
+                {{this.message}}
+            </p>
+            <a class="button red easing" (click)="this.deleteTier(i)">
+                Delete
+            </a>
+            <a class="button easing" (click)="this.updateTier(i)">
+                Save
+            </a>
+            <!--
+                <a class="button easing" (click)="this.publishTier(i)">
+                    {{tier.published ? 'Unpublish' : 'Publish'}}
+                </a>
+            -->
+        </div>
+
+    </div>
+    <!-- profile-tier -->
+</div>
+<!-- profile-tiers -->

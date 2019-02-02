@@ -1,0 +1,39 @@
+@import "../../../base.styles.scss";
+
+div.profile-meta {
+    width: 100%;
+    background: $g2;
+    padding: 15px;
+    border-bottom: 2px dashed $g4;
+    display: flex;
+    align-items: center;
+    div.checkbox-input {
+        width: 50%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        cursor: pointer;
+        a.checkbox-input {
+            width: 25px;
+            height: 25px;
+            border: 2px solid white;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        p {
+            width: calc(100% - 40px);
+        }
+        &:hover {
+            a.checkbox-input { background: $g5; border: 2px solid white; }
+        }
+        &.active {
+            a.checkbox-input { background: $b3; border: 2px solid white; }
+        }
+    }
+    @media (max-width: 960px) {
+        display: block;
+        padding: 15px 0;
+        div.checkbox-input { width: 100%; padding: 30px 15px; }
+    }
+}

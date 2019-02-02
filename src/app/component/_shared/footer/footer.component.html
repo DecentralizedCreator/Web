@@ -1,0 +1,81 @@
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-header">
+      <a class="brand">
+        <div class="brand-image easing">
+          <img src="/assets/img/lambda.png"/>
+        </div>
+        <div class="brand-text">
+          <h1>Decentralized Creator</h1>
+          <h2>Helping Content Creators Decentralize Their Income</h2>
+        </div>
+        <a class="chevron easing" (click)="this.scrollToTop(500)">
+          <i class="fas fa-chevron-up"></i>
+        </a>
+      </a>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-column links">
+        <a class="footer-link easing" target="source" href="https://github.com/DecentralizedCreator">
+          <i class="fab fa-github"></i>
+          <span>Source Code</span>
+        </a>
+        <a class="footer-link easing" [target]="this.altLabel" [href]="this.altUrl">
+          <i class="fas fa-globe-americas"></i>
+          <span>{{this.altLabel}}</span>
+        </a>
+        <a class="footer-link easing" routerLink="/help" (click)="this.scrollToTop(500)">
+          <i class="far fa-question-circle"></i>
+          <span>Help</span>
+        </a>
+        <a class="footer-link easing" routerLink="/roadmap" (click)="this.scrollToTop(500)">
+          <i class="fas fa-map-signs"></i>
+          <span>Roadmap</span>
+        </a>
+        <a class="footer-link easing" target="mailto" href="mailto:hello@chriscates.ca">
+          <i class="fas fa-mail-bulk"></i>
+          <span>hello@chriscates.ca</span>
+        </a>
+      </div>
+      <div class="footer-column support">
+
+        <div class="donate-tabs">
+            <a class="donate-tab easing" (click)="this.crypto.donationTab = 'BTC'" [class.active]="this.crypto.donationTab == 'BTC'">
+              <i class="fab fa-bitcoin"></i>
+            </a>
+            <a class="donate-tab easing" (click)="this.crypto.donationTab = 'ETH'" [class.active]="this.crypto.donationTab == 'ETH'">
+              <i class="fab fa-ethereum"></i>
+            </a>
+            <a class="donate-tab easing" (click)="this.crypto.donationTab = 'DOGE'" [class.active]="this.crypto.donationTab == 'DOGE'">
+              <img src="/assets/misc/doge.png"/>
+            </a>
+            <p>Support Our Project</p>
+          </div>
+          <div class="donate-content-wrap">
+            <div class="donate-content easing" [class.active]="this.crypto.donationTab == 'BTC'">
+                <qrcode [qrdata]="this.crypto.BTC" [size]="96" [level]="'M'"></qrcode>
+                <div class="text">
+                  <h3>BTC Address</h3>
+                  <p>{{this.crypto.BTC}}</p>
+                </div>
+            </div>
+            <div class="donate-content easing" [class.active]="this.crypto.donationTab == 'ETH'">
+                <qrcode [qrdata]="this.crypto.ETH" [size]="96" [level]="'M'"></qrcode>
+                <div class="text">
+                  <h3>ETH Address</h3>
+                  <p>{{this.crypto.ETH}}</p>
+                </div>
+            </div>
+            <div class="donate-content easing" [class.active]="this.crypto.donationTab == 'DOGE'">
+                <qrcode [qrdata]="this.crypto.DOGE" [size]="96" [level]="'M'"></qrcode>
+                <div class="text">
+                  <h3>DOGE Address</h3>
+                  <p>{{this.crypto.DOGE}}</p>
+                </div>
+            </div>
+          </div>
+          <!-- div.donate-tabs -->
+      </div>
+    </div>
+  </div>
+</footer>

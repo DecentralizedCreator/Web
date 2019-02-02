@@ -1,0 +1,20 @@
+<div class="disclaimer-notice easing" [class.active]="this.visible">
+  <h2>
+    <i class="fas fa-exclamation-triangle"></i>
+    Disclaimer Notice
+    <i class="fas fa-exclamation-triangle"></i>
+  </h2>
+  <div class="notice-item" *ngFor="let notice of this.notices; let i = index;">
+    <p>
+      {{notice}}
+    </p>
+  </div>
+  <div class="buttons">
+    <a class="button easing" (click)="this.dontShow();">
+      Don't show again
+    </a>
+    <a class="button easing" (click)="this.visible = false;">
+      Dismiss
+    </a>
+  </div>
+</div>

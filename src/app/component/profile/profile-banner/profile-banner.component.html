@@ -1,0 +1,8 @@
+<div class="profile-banner">
+    <img [src]="this.bannerImage()" class="banner" [class.visible]="this.profile.data.bannerUrl"/>
+    <a class="edit-banner-button easing" (click)="this.clickEvent()" [class.corner]="this.profile.data.bannerUrl.length > 1">
+        Edit Banner (1200x400 preferred)
+    </a>
+    <input type="file" name="banner" accept="image/*" id="banner-input"/>
+    <app-loading-state [visible]="this.loading"></app-loading-state>
+</div>

@@ -1,0 +1,17 @@
+<div class="profile-meta">
+    <div class="checkbox-input"
+    [class.active]="this.profile.form.nsfw == true"
+    (click)="this.profile.form.nsfw = !this.profile.form.nsfw; this.updateMeta();"
+    >
+        <a class="checkbox-input easing"></a>
+        <p>My content is NSFW</p>
+    </div>
+    <div class="checkbox-input"
+    [class.active]="this.profile.form.censored == true"
+    (click)="this.profile.form.censored = !this.profile.form.censored; this.updateMeta();"
+    >
+        <a class="checkbox-input easing"></a>
+        <p>My content has been censored from other platforms</p>
+    </div>
+</div>
+<!-- profile-meta -->

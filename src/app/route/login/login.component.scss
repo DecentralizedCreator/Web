@@ -1,0 +1,19 @@
+@import "../../base.styles.scss";
+
+div.page-wrap {
+    width: 100%;
+    max-width: 1200px;
+    height: calc(100vh - 70px);
+    margin: auto;
+    background: $g2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 90px 0;
+}
+
+div.form {
+    padding: 15px;
+    width: 100%;
+    max-width: 768px;
+}

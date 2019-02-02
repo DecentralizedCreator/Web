@@ -1,0 +1,15 @@
+<div class="profile-description">
+    <p class="label">Description</p>
+    <textarea class="pd-te" [(ngModel)]="this.profile.form.description" (input)="this.updateCounter(); this.resizeTextarea();"></textarea>
+</div>
+<!-- profile-description -->
+
+<div class="button-wrap">
+    <p class="info easing"
+    [class.active]="this.messageState !== 0"
+    >
+        {{this.message}}
+    </p>
+    <p class="limit">{{this.counter}}/5000</p>
+    <a class="button easing" (click)="this.updateDescription(this.profile.form.description)">Update</a>
+</div>

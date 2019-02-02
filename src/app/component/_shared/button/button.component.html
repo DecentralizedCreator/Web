@@ -1,0 +1,9 @@
+<a
+  class="button {{this.type}} easing"
+  [class.red]="this.color == 'red'"
+  [class.green]="this.color == 'green'"
+  [class.loading]="this.loading"
+>
+  <app-loading-state [visible]="this.loading"></app-loading-state>
+  {{this.label}}
+</a>

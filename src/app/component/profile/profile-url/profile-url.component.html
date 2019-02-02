@@ -1,0 +1,18 @@
+<div class="profile-url">
+    <p>decentralizedcreator.com/page/</p>
+    <div class="input-wrap">
+        <input type="text" placeholder="Your URL" [(ngModel)]="this.profile.form.profileUrl" />
+        <p class="info-label easing"
+            [class.active]="this.messageState !== 0"
+            [class.red]="this.messageState === -1"
+            [class.green]="this.messageState === 1"
+        >
+            {{this.message}}
+        </p>
+    </div>
+    <p class="limit">{{this.profile.form.profileUrl ? this.profile.form.profileUrl.length : 0}}/50</p>
+    <a class="button easing" (click)="this.updateProfileUrl(this.profile.form.profileUrl)">
+        <i class="fas fa-check"></i>
+    </a>
+</div>
+<!-- profile-url -->

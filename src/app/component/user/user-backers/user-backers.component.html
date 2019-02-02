@@ -1,0 +1,30 @@
+<h2>Backers</h2>
+
+<div class="tier-backers" *ngFor="let tier of this.user.tiers; let i = index;">
+    <div class="title">
+        <div class="title-image">
+            <img [src]="this.user.getImage(tier.photo)" />
+        </div>
+        <h3>{{tier.title}}</h3>
+        <div class="tier-count">
+            {{tier.limit ?
+                (tier.subscriber.length + ' of ' + tier.limit + ' Subscribed')
+                :
+                (tier.subscriber.length + ' Subscribed')
+            }}
+        </div>
+    </div>
+    <div class="backer-list">
+        <div class="backer" *ngFor="let subscriber of tier.subscriber; let i = index;">
+            <div class="backer-image">
+                <img [src]="this.user.getImage(subscriber.user.photoUrl)" />
+            </div>
+            <div class="backer-text">
+                <h3>{{subscriber.user.username}}</h3>
+                <p>Subscribed {{this.utility.convertTimestamp(subscriber.dateSubscribed)}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="spacer"></div>

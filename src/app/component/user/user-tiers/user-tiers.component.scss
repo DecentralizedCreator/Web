@@ -1,0 +1,461 @@
+@import "../../../base.styles.scss";
+
+h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 42px;
+    padding: 30px 0;
+}
+
+div.tier-loading-state {
+    position: absolute;
+    left: 300px;
+    width: calc(100% - 300px);
+    height: 100%;
+    background: $g2;
+    z-index: 111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media(max-width: 960px) {
+        width: 100%;
+        left: 0;
+    }
+
+    opacity: 0;
+    pointer-events: none;
+    &.active {
+        opacity: 1;
+    }
+
+    div.lambda {
+        width: 128px;
+        height: 128px;
+        position: relative;
+        div.lambda-rotater {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px dashed white;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            @keyframes rotation {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            animation: rotation;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-duration: 20s;
+        }
+        img {
+            position: absolute;
+            left: 10%;
+            top: 10%;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+    }
+}
+
+div.user-tiers {
+    width: 100%;
+    background: $g2;
+    display: flex;
+    position: relative;
+    padding: 30px 0;
+
+    @media (max-width: 960px) {
+        display: block;
+    }
+
+    div.tier-list {
+        width: 300px;
+        min-height: 400px;
+        background: lighten($g2, 1.25%);
+
+        a.tier-select {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+
+            &:hover { background: $g5; }
+            &.active { background: darken($b3, 10%); }
+        }
+
+        @media (max-width: 960px) {
+            width: 100%;
+            min-height: 0;
+            height: auto;
+        }
+    }
+
+    div.tier {
+        width: calc(100% - 300px);
+        display: none;
+        &.active { display: block; }
+
+        @media (max-width: 960px) {
+            width: 100%;
+            min-height: 900px;
+        }
+
+        div.tier-header {
+            width: 100%;
+            height: 60px;
+            border-bottom: 2px solid white;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            @media (max-width: 960px) {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+
+            div.tier-photo {
+                position: absolute;
+                left: 30px;
+                top: 0px;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                border: 2px solid white;
+                background: $g3;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                @media (max-width: 960px) {
+                    position: static;
+                    margin: 30px auto;
+                }
+            }
+
+            h3 {
+                margin-left: 180px;
+                font-size: 32px;
+                font-weight: 400;
+                @media (max-width: 960px) {
+                    text-align: center;
+                    padding: 15px;
+                    margin: 0;
+                }
+            }
+
+            div.tier-backers {
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                width: 200px;
+                height: 30px;
+                border-radius: 15px;
+                background: $g4;
+                color: white;
+                font-size: 16px;
+                font-weight: 400;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @media (max-width: 960px) {
+                    margin: 15px;
+                    width: calc(100% - 30px);
+                    position: static;
+                }
+            }
+        }
+
+        div.tier-purchase {
+            width: 100%;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 180px;
+            border-bottom: 2px solid white;
+
+            @media (max-width: 960px) {
+                padding: 15px;
+            }
+
+            div.tier-cost {
+                display: flex;
+                align-items: center;
+                height: 90px;
+                div.crypto-icon {
+                    width: 60px;
+                    height: 60px;
+                    background: $g4;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                h3 {
+                    font-size: 18px;
+                    font-weight: 600;
+                    padding-left: 15px;
+                }
+            }
+
+            a.tier-purchase-button {
+                margin: 0 15px;
+                width: 200px;
+                height: 40px;
+                border-radius: 20px;
+                background: darken($b3, 5%);
+                color: white;
+                border: 2px solid white;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                font-weight: 400;
+                &:hover { transform: scale(1.2); background: $b3; }
+
+                display: none;
+                &.visible { display: flex; }
+            }
+
+            h3.subbed {
+                font-size: 24px;
+                font-weight: 400;
+                margin: 0 30px;
+                letter-spacing: 1.5px;
+                display: none;
+                &.visible { display: block; }
+            }
+
+        }
+
+        div.tier-about {
+            width: 100%;
+            padding: 30px;
+            h3 {
+                font-size: 24px;
+                font-weight: 400;
+                margin: 0 0 5px 0;
+            }
+            p {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            textarea {
+                width: 100%;
+                height: auto;
+                border: none;
+                font-size: 18px;
+                background: none;
+                color: white;
+                font-family: inherit;
+                margin: 15px 0;
+                resize: none;
+                pointer-events: none;
+            }
+        }
+
+    }
+
+}
+
+div.tier-purchase-confirm {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $g3;
+    padding: 15px;
+    border: 2px solid $g4;
+
+    opacity: 0;
+    pointer-events: none;
+    &.active {
+        opacity: 1;
+        pointer-events: visible;
+    }
+
+    &.centered {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h3 {
+        font-size: 32px;
+        font-weight: 400;
+        text-align: center;
+        margin: 0 0 10px 0;
+    }
+
+    h4 {
+        font-size: 18px;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    div.confirm-info-row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        @media(max-width: 960px) {
+            flex-direction: column;
+        }
+
+        div.confirm-info-item {
+            width: calc(100% / 2);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 30px;
+
+            @media(max-width: 960px) {
+                width: 100%;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0px;
+            }
+
+            div.crypto-icon, div.crypto-qr {
+                width: 200px;
+                height: 150px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                i { font-size: 64px; }
+            }
+            div.info-text {
+                padding-left: 30px;
+                @media(max-width: 960px) {
+                    padding-left: 15px;
+                }
+            }
+            div.amount {
+                display: flex;
+                align-items: center;
+                height: 50px;
+                font-size: 24px;
+                font-weight: 400;
+                margin: 0 0 5px 0;
+                div.label {
+                    font-size: 18px;
+                    width: 75px;
+                    height: 30px;
+                    background: $b3;
+                    border: 2px solid white;
+                    color: white;
+                    border-radius: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 30px;
+                    @media(max-width: 960px) {
+                        margin-right: 15px;
+                        font-size: 14px;
+                    }
+                }
+                &.big {
+                    font-size: 14px;
+                    div.label {
+                        font-size: 14px;
+                        width: 100px;
+                    }
+                    @media(max-width: 960px) {
+                        flex-direction: column;
+                        justify-content: center;
+                        font-size: 14px;
+                        height: auto;
+                        div.label { font-size: 14px; margin: 10px 0; }
+                    }
+                }
+            }
+        }
+    }
+
+    div.centered-button-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        div.error-label {
+            position: absolute;
+            left: calc(50% - 190px);
+            top: -65px;
+            height: 50px;
+            border-radius: 25px;
+            background: $g1;
+            color: white;
+            width: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            &.active {
+                opacity: 1;
+            }
+        }
+
+        &.margin {
+            margin: 30px 0;
+        }
+
+        a.button {
+            width: 240px;
+            height: 40px;
+            border-radius: 25px;
+            border: 2px solid white;
+            background: $b5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+
+            img {
+                height: 25px;
+                margin-right: 5px;
+            }
+
+            &:last-of-type { margin-right: 0; }
+            &:hover {
+                transform: scale(1.125);
+                background: $b3;
+            }
+            &.red {
+                background: lighten($red, 5%);
+                &:hover {
+                    background: $red;
+                }
+            }
+        }
+
+        @media (max-width: 960px) {
+            flex-direction: column;
+            margin: 15px 0;
+            a.button {
+                margin: 15px 0;
+            }
+        }
+    }
+
+}

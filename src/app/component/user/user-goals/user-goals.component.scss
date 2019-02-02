@@ -1,0 +1,38 @@
+@import "../../../base.styles.scss";
+
+h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 32px;
+    padding: 30px 0 0 0;
+}
+
+div.user-goals {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: $g2;
+    border-bottom: 2px dashed $g4;
+    padding: 15px 0;
+    div.user-goal {
+        display: none;
+        justify-content: center;
+        width: calc(100% / 4);
+
+        &.visible { display: flex; }
+
+        p {
+            padding: 5px;
+            font-size: 18px;
+            i { margin-right: 5px; }
+        }
+    }
+
+    @media (max-width: 960px) {
+        div.user-goal {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<h2>Comments</h2>
+
+<div class="write" [class.visible]="this.session.state.active">
+    <p class="label">Write a comment</p>
+    <textarea [(ngModel)]="this.comment"></textarea>
+</div>
+
+<div class="write-submit" [class.visible]="this.session.state.active">
+    <a class="submit easing" (click)="this.submitComment();">Add Comment</a>
+</div>
+
+<div class="comments">
+    <div class="comment" *ngFor="let comment of this.user.comments; let i = index;">
+        <div class="comment-photo">
+            <img [src]="this.utility.getImage(comment.user.photoUrl)"/>
+        </div>
+        <div class="comment-text">
+            <h3>{{comment.user.username}} <span class="smaller">{{this.utility.convertTimestamp(comment.dateUpdated)}} said</span></h3>
+            <p>{{comment.comment}}</p>
+        </div>
+    </div>
+</div>

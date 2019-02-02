@@ -1,0 +1,110 @@
+@import "../../../base.styles.scss";
+
+div.profile-url {
+    width: 100%;
+    background: $g2;
+    padding: 15px;
+    border-bottom: 2px dashed $g4;
+    display: flex;
+    align-items: center;
+
+    p {
+        font-size: 18px;
+        padding-left: 15px;
+        &.limit {
+            padding: 0;
+            width: 80px;
+            text-align: right;
+        }
+    }
+
+    @media (max-width: 960px) {
+        display: block;
+        p {
+            padding: 15px 0;
+            text-align: center;
+            &.limit {
+                width: 100%;
+                padding: 15px;
+                text-align: center;
+            }
+        }
+    }
+
+    div.input-wrap {
+        width: calc(100% - 420px);
+        margin-left: 15px;
+        position: relative;
+
+        @media (max-width: 960px) {
+            padding: 15px 0;
+            width: 100%;
+            margin: 0;
+        }
+
+        input {
+            width: 100%;
+            height: 50px;
+            border: none;
+            padding: 0 15px;
+            font-size: 18px;
+            background: none;
+            color: white;
+            background: $g3;
+            font-family: inherit;
+        }
+
+        p.info-label {
+            position: absolute;
+            right: 15px;
+            top: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            background: $g1;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0; padding: 0 15px;
+            border-radius: 20px;
+            opacity: 0;
+            pointer-events: none;
+            &.red { color: $red; }
+            &.green { color: $green; }
+            &.active { opacity: 1; }
+        }
+
+        i {
+            position: absolute;
+            right: 15px;
+            top: 12.5px;
+            font-size: 24px;
+            &.red { color: $red; }
+            &.green { color: $green; }
+            opacity: 0;
+            pointer-events: none;
+            &.active { opacity: 1; }
+        }
+    }
+
+    a.button {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        background: $b5;
+        color: white;
+        border: 2px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 15px;
+        &:hover {
+            background: $b3;
+            transform: scale(1.25);
+        }
+        @media (max-width: 960px) {
+            width: 100%;
+            margin: 0 0 30px 0;
+        }
+    }
+}

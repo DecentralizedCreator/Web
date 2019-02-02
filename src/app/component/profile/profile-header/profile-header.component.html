@@ -1,0 +1,44 @@
+<div class="profile-header">
+    <div class="profile-photo-wrap">
+        <div class="profile-photo">
+            <img [src]="this.utility.getImage(this.profile.data.photoUrl)" />
+            <a class="edit-profile easing" (click)="this.clickEvent()">
+                Edit<br/>
+                Photo
+            </a>
+            <input type="file" name="photo" accept="image/*" id="photo-input"/>
+            <app-loading-state [visible]="this.photoLoading"></app-loading-state>
+        </div>
+    </div>
+    <div class="profile-name">
+
+        <div class="profile-input-wrap">
+            <span class="input-dialog easing" [class.active]="this.getErrorKey('name').length > 0">
+                <p>{{this.getErrorKey('name')}}</p>
+            </span>
+            <span class="input-limit">
+                {{this.profile.form.name ? this.profile.form.name.length : 0}}/100
+            </span>
+            <a class="input-checkmark easing" (click)="this.updateProfileHeader(this.profile.form.name, this.profile.form.tagline)">
+                <i class="fas fa-check"></i>
+            </a>
+            <p class="label">Profile Name</p>
+            <input type="text" class="name" [(ngModel)]="this.profile.form.name" (input)="this.update(this.profile.form.name, this.profile.form.tagline)"/>
+        </div>
+
+        <div class="profile-input-wrap">
+            <span class="input-dialog easing" [class.active]="this.getErrorKey('tagline').length > 0">
+                <p>{{this.getErrorKey('tagline')}}</p>
+            </span>
+            <span class="input-limit">
+                {{this.profile.form.tagline ? this.profile.form.tagline.length : 0}}/100
+            </span>
+            <a class="input-checkmark easing" (click)="this.updateProfileHeader(this.profile.form.name, this.profile.form.tagline)">
+                <i class="fas fa-check"></i>
+            </a>
+            <p class="label">Tagline</p>
+            <input type="text" class="tagline" [(ngModel)]="this.profile.form.tagline" (input)="this.update(this.profile.form.name, this.profile.form.tagline)"/>
+        </div>
+    </div>
+</div>
+<!-- profile-header -->

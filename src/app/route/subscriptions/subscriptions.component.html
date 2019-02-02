@@ -1,0 +1,71 @@
+<div class="page-content">
+  <div class="page-wrap">
+    <h2>Subscriptions</h2>
+    <div class="subscription" *ngFor="let sub of this.subscriptions; let i = index;">
+        <div class="image">
+          <img [src]="this.getImage(sub.tier.photo)"/>
+        </div>
+        <div class="text">
+
+          <div class="info">
+            <div class="info-label">
+              Profile
+            </div>
+            <div class="info-value">
+              {{sub.profile.name}}
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="info-label">
+              Tier #{{sub.tier.index + 1}}
+            </div>
+            <div class="info-value">
+              {{sub.tier.title}}
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="info-label">
+              Subscribed
+            </div>
+            <div class="info-value">
+              {{this.convertTimestamp(sub.dateSubscribed)}}
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="info-label">
+              Expires
+            </div>
+            <div class="info-value">
+              {{this.convertTimestamp(sub.dateExpiry)}}
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="info-label">
+              Cost
+            </div>
+            <div class="info-value">
+              {{sub.tier.amount}} {{sub.tier.currency}}
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="info-label">
+              Status
+            </div>
+            <div class="info-value">
+              {{sub.state}}
+            </div>
+          </div>
+
+        </div>
+
+        <a class="button easing" routerLink="/page/{{sub.profile.profileUrl}}">
+          View Profile
+        </a>
+    </div>
+  </div>
+</div>

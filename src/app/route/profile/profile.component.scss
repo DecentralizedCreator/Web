@@ -1,0 +1,41 @@
+@import "../../base.styles.scss";
+
+div.profile-tabs {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+
+    a.profile-tab {
+        width: 240px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        &:hover {
+            background: $g3;
+        }
+        &.active {
+            background: $b3;
+            color: white;
+        }
+    }
+    @media(max-width: 960px) {
+        a.profile-tab {
+            width: 50%;
+            font-size: 10px;
+            text-align: center;
+        }
+    }
+}
+
+div.profile-content {
+    display: none;
+    &.active {
+        display: block;
+    }
+}

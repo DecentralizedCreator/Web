@@ -1,0 +1,36 @@
+@import "../../../base.styles.scss";
+
+h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 32px;
+    padding: 30px 0 0 0;
+}
+
+div.user-description {
+    width: 100%;
+    background: $g2;
+    border-bottom: 2px dashed $g4;
+    padding: 30px;
+    p {
+        font-size: 18px;
+        font-weight: 400;
+    }
+    textarea {
+        width: calc(100% - 30px);
+        height: auto;
+        border: none;
+        padding: 0 15px;
+        font-size: 18px;
+        background: none;
+        color: white;
+        font-family: inherit;
+        margin: 0px 15px 15px 15px;
+        resize: none;
+        pointer-events: none;
+    }
+
+    @media(max-width: 960px) {
+        padding: 30px 0;
+    }
+}

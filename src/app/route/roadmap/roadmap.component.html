@@ -1,0 +1,118 @@
+<div class="page-wrap">
+  <h2><i class="fas fa-map-signs"></i> Roadmap</h2>
+
+  <div class="video-wrap">
+    <iframe width="480" height="320" src="https://www.youtube.com/embed/qjUVH4YVm-U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div class="item">
+    <i class="fas fa-check-circle green"></i>
+    <div class="item-text">
+      <h3>API and WebApp</h3>
+      <p>
+        The initial prototype is built with Typescript, Express, Mongo and Angular.
+        I've chosen Express for the initial prototype since the intention was to create
+        an easy to pick up open source tool. However, in the future, when
+        <a href="https://github.com/ModernSoftware/WSF" target="wsf">
+          <i class="fab fa-github"></i>
+          ModernSoftware/WSF
+        </a>
+        is more ready for production deployments. I will be creating a poll to vote for
+        continuing work in Express or WSF.
+      </p>
+    </div>
+  </div>
+  <!-- item #1 -->
+
+  <div class="item">
+    <i class="fas fa-check-circle green"></i>
+    <div class="item-text">
+      <h3>Ethereum Custodial and Non-Custodial Wallets</h3>
+      <p>
+        The initial prototype features both Custodial and Non-Custodial Wallet solutions for Ethereum. This
+        is inherently much easier to implement for ETH since Metamask exists.
+        The reason I've omitted BTC and XMR from the initial release is because there is no good solution
+        for BTC or XMR that is non-custodial.
+        <a href="https://www.abra.com/blog/noncustodialwallet/" target="abra">
+          <i class="far fa-newspaper"></i>
+          See this post by Abra
+        </a>
+        and
+        <a href="https://blog.evercoin.com/custodial-vs-non-custodial-exchanges-1890996401bd">
+          <i class="far fa-newspaper"></i>
+          this post by Evercoin
+        </a>
+        to learn more about
+        the difference between custodial and non-custodial wallets. The intention is for DecentralizedCreator
+        to be friendly to beginner users who may only know how to deal with a custodial solution.
+        But, also catering to more advanced users who may prefer hardware wallets or, to simply just own
+        their private keys. Our intention is to *always* encourage users to use non-custodial solutions however.
+      </p>
+    </div>
+  </div>
+  <!-- item #2 -->
+
+  <div class="item">
+    <i class="fas fa-dot-circle"></i>
+    <div class="item-text">
+      <h3>One Click Deploys on %eaxops</h3>
+      <p>
+        Despite <a href="https://eaxops.com" target="eax">
+          <i class="fas fa-globe-americas"></i>
+          %eaxops.com
+        </a> not being in public beta (or ready
+        for production scale orchestration).
+        I do intend on creating one click deploys for DecentralizedCreator with %eaxops. This will make
+        it a lot easier to setup your own custom version of DecentralizedCreator, if you do intend
+        on publishing your own version of DecentralizedCreator.
+      </p>
+    </div>
+  </div>
+  <!-- item #3 -->
+
+  <div class="item">
+    <i class="fas fa-dot-circle"></i>
+    <div class="item-text">
+      <h3>Bitcoin and Monero Custodial and Non-Custodial Wallets</h3>
+      <p>
+        Currently there is no real open source solution for Non-Custodial wallets
+        for Bitcoin and Monero. Since non-custodial wallet APIs for Bitcoin and Monero full nodes
+        would be extremely valuable. It would make sense to separate this aspect of the project to
+        two projects. Non-Custodial wallets are becoming increasingly more important to the integrity
+        of the Cryptocurrency Community in order to protect individual's assets.
+        <a href="https://www.financemagnates.com/cryptocurrency/news/is-crypto-exchange-quadrigacx-a-scam-a-tragedy-or-neither/" target="quadriga">
+          <i class="far fa-newspaper"></i>
+          See the potential Quadriga exit scam
+        </a>
+        as to why having your wallets managed by a third party are a liability if said party were
+        to be compromised. Unfortunately, solutions such as BTCPay don't function this way, and,
+        essentially create a centralized database of wallets which is what DecentralizedCreator
+        wants to avoid and eventually deprecate in the future.
+      </p>
+    </div>
+  </div>
+  <!-- item #4 -->
+
+  <div class="item">
+    <i class="fas fa-dot-circle"></i>
+    <div class="item-text">
+      <h3>IPFS Search Engine for Video, Audio and Text</h3>
+      <p>
+        DecentralizedCreator's second phase will be a fully fledged search engine for Video, Audio
+        and Text content. Think of it as a replacement for platforms such as YouTube. Content can
+        be posted unencrypted, or, require a PGP Key in order to access it. PGP Keys can be
+        managed in a non-custodial fashion, or, managed via our custodial database. Currently,
+        I am working on an optimized IPFS node for serving content via HTTP called
+        <a href="https://github.com/ModernSoftware/SFS" target="sfs">
+          <i class="fab fa-github"></i>
+          ModernSoftware/SFS
+        </a>
+        which is always open to contributions.
+      </p>
+    </div>
+  </div>
+  <!-- item #5 -->
+
+  <h4>If you have feedback or want to support DecentralizedCreator, please email me at hello@chriscates.ca</h4>
+
+</div>

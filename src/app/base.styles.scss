@@ -1,0 +1,60 @@
+// Color Palette Variables
+$g1: lighten(black, 2.5%);
+$g2: lighten(black, 5%);
+$g3: lighten(black, 7.5%);
+$g4: lighten(black, 10%);
+$g5: lighten(black, 12.5%);
+$g6: lighten(black, 15%);
+$g7: lighten(black, 17.5%);
+$g8: lighten(black, 20%);
+
+$b3: #327CCB;
+$b1: lighten($b3, 5%);
+$b2: lighten($b3, 2.5%);
+$b4: darken($b3, 2.5%);
+$b5: darken($b3, 5%);
+
+$red: #FF3030;
+$green: rgb(92, 211, 68);
+
+$text: white;
+
+// Page Dimension Variables
+$header-height: 90px;
+$footer-height: 360px;
+$footer-column: 290px;
+$page-height: calc(100vh - 70px);
+
+// Default CSS Properties
+a {
+  color: $b1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+* {
+  margin: 0px;
+  box-sizing: border-box;
+  outline: none;
+
+  &.easing {
+    transition: all 250ms cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  &.easing-500 {
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  }
+}
+
+div.page-content {
+  width: 100%;
+  min-height: $page-height;
+}
+
+div.page-wrap {
+  width: 100%;
+  max-width: 1200px;
+  min-height: $page-height;
+  margin: auto;
+  background: $g2;
+  &.no-bg { background: transparent; }
+}

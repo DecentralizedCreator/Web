@@ -1,0 +1,108 @@
+<div class="wallet">
+
+    <div class="wallet-qr">
+        <a class="view-block easing" [href]="this.getBlockExplorerUrl()" target="{{this.getAddress()}}">
+            {{this.getBlockExplorerLabel()}}
+        </a>
+        <qrcode [qrdata]="this.getAddress()" [size]="120" [level]="'M'"></qrcode>
+    </div>
+
+    <div class="wallet-info">
+
+        <div class="wallet-confirmation easing" [class.active]="this.inputs.dialog">
+            <h3>Confirm this transaction</h3>
+            <div class="amount-to-confirm">
+                <div class="amount-to">
+                    <div class="confirm-header">
+                        <p>Amount</p>
+                    </div>
+                    <div class="amount-wrap">
+                        <i class="{{this.getIcon()}}"></i>
+                        <p>{{this.confirm['amount']}} {{this.walletType.toUpperCase()}}</p>
+                    </div>
+                    <div class="amount-wrap tx-amount">
+                        <p>
+                            Fee: {{this.confirm['gasCost']}} {{this.walletType.toUpperCase()}}
+                        </p>
+                        <p>
+                            Total: {{this.getTotal()}} {{this.walletType.toUpperCase()}}
+                        </p>
+                    </div>
+                </div>
+                <div class="to-confirm">
+                    <div class="confirm-header">
+                        <p>Address</p>
+                    </div>
+                    <qrcode [qrdata]="this.getConfirmedAddress()" [size]="60" [level]="'M'"></qrcode>
+                    <p class="address">{{this.getConfirmedAddress()}}</p>
+                </div>
+                <div class="confirm-buttons">
+                    <div class="error-label easing" [class.active]="this.confirmError">
+                        <p>Something went wrong with the transaction...</p>
+                    </div>
+                    <a class="confirm-button red easing" (click)="this.inputs.dialog = false;">
+                        Cancel
+                    </a>
+                    <a class="confirm-button easing" (click)="this.withdraw();">
+                        Confirm
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- div.wallet-confirmation -->
+
+        <div class="transaction-complete easing" [class.active]="this.inputs.complete">
+            <h2>Transaction Complete</h2>
+            <h3>Transaction Hash</h3>
+            <p>{{this.transaction['hash']}}</p>
+            <div class="button-row">
+                <a class="view-tx easing" (click)="this.inputs.complete = false;">
+                    Close
+                </a>
+                <a class="view-tx easing" [href]="this.getTransactionUrl()" target="{{this.getTransactionUrl()}}">
+                    {{this.getBlockExplorerLabel()}}
+                </a>
+            </div>
+
+        </div>
+        <!-- div.transaction-complete -->
+
+        <div class="wallet-info-tabs">
+            <h3>
+                <i class="{{this.getIcon()}}"></i>
+                {{this.walletType.toUpperCase()}}
+            </h3>
+            <h3>
+                Balance: {{this.getBalance()}}
+            </h3>
+            <h3>
+                Address: {{this.getAddress()}}
+            </h3>
+        </div>
+        <div class="cash-out-form">
+
+            <p class="label">
+                <i class="fas fa-qrcode"></i>
+                Address
+                <span class="error-label easing" [class.active]="this.getError().length > 0">{{this.getError()}}</span>
+            </p>
+            <input type="text" [(ngModel)]="this.inputs['address']"/>
+
+            <div class="cash-out-row">
+                <div class="input">
+                    <p class="label">
+                        <i class="{{this.getIcon()}}"></i>
+                        Amount
+                        <span class="error-label easing" [class.active]="this.getAmountError().length > 0">{{this.getAmountError()}}</span>
+                    </p>
+                    <input type="number" [(ngModel)]="this.inputs['amount']"/>
+                </div>
+                <a class="button easing" (click)="this.validate()">Cash Out</a>
+            </div>
+
+        </div>
+    </div>
+    <!-- div.wallet-info -->
+
+</div>
+<!-- div.wallet -->

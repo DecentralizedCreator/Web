@@ -1,0 +1,54 @@
+<div class="metamask-wrap">
+
+  <a class="enable-metamask" (click)="this.metamask.enableMetamask()" [class.visible]="this.metamask.hasMetamask && !this.metamask.enabled">
+    <div class="enable-content easing-500">
+      <img src="/assets/misc/metamask.png"/>
+      <h3>Click here to enable Metamask</h3>
+    </div>
+  </a>
+
+  <a class="enable-metamask" href="https://metamask.io" target="metamask" [class.visible]="!this.metamask.hasMetamask && !this.metamask.enabled">
+    <div class="enable-content easing-500">
+      <img src="/assets/misc/metamask.png"/>
+      <h3>Click here to download Metamask</h3>
+    </div>
+  </a>
+  <!-- enable metamask overlays -->
+
+  <div class="wallet-qr">
+      <a class="view-block easing" [href]="this.metamask.getBlockExplorerUrl()" target="{{this.metamask.address}}">
+          View on Etherscan
+      </a>
+      <qrcode [qrdata]="this.metamask.address" [size]="120" [level]="'M'"></qrcode>
+  </div>
+
+  <div class="wallet-details">
+    <div class="wallet-detail-header">
+      <img src="/assets/misc/metamask.png"/>
+      <i class="fab fa-ethereum"></i>
+      <p>Metamask Ethereum</p>
+    </div>
+    <div class="info-label">
+      <p class="label">
+        <i class="fas fa-qrcode"></i>
+        Address
+      </p>
+      <p>{{this.metamask.address}}</p>
+    </div>
+    <div class="info-label">
+      <p class="label">
+        <i class="fab fa-ethereum"></i>
+        Balance
+      </p>
+      <p>{{this.metamask.balance}}</p>
+    </div>
+    <div class="info-label">
+      <p class="label">
+        <i class="fas fa-network-wired"></i>
+        Network
+      </p>
+      <p>{{this.metamask.network}} (Server Network is {{this.metamask.serverNetwork}})</p>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,156 @@
+<div class="sub-tier" *ngFor="let tier of this.profile.subscriberTiers; let i = index;">
+
+  <div class="sub-tier-header">
+    <div class="image">
+      <img [src]="this.utility.getImage(tier.photo)"/>
+    </div>
+    <div class="text">
+      <h3>{{tier.index >= 0 ? "Tier #" + (tier.index + 1) + ": " + tier.title : "Deleted Tier: " + tier.title}}</h3>
+    </div>
+  </div>
+
+  <div class="subs">
+
+    <div class="sub" *ngFor="let sub of tier.subscriber; let ii = index;">
+
+      <div class="user">
+        <div class="image">
+          <img [src]="this.utility.getImage(sub.user.photoUrl)"/>
+        </div>
+
+        <div class="text">
+          <h3>{{sub.user.username}}</h3>
+          <h3>{{sub.user.email}}</h3>
+          <p>
+            Subscribed: {{this.utility.convertTimestamp(sub.dateSubscribed)}}
+          </p>
+          <p>
+            Expires: {{this.utility.convertTimestamp(sub.dateExpiry)}}
+          </p>
+          <p>
+            State: {{sub.state}}
+          </p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="button easing" (click)="sub.overlay = true">Manage</a>
+        <a class="button easing" href="mailto:{{sub.user.email}}">Email</a>
+      </div>
+
+      <div class="sub-manage-overlay easing" [class.active]="sub.overlay">
+        <a class="close-button easing" (click)="sub.overlay = false;">
+          <i class="fas fa-times"></i>
+        </a>
+
+        <div class="sub-manage-header">
+          <div class="image">
+            <img [src]="this.utility.getImage(sub.user.photoUrl)"/>
+          </div>
+          <div class="text">
+            <h3>Username: {{sub.user.username}}</h3>
+            <h3>Email: {{sub.user.email}}</h3>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <a class="button easing" (click)="this.manageTab = 'expiry'">Review Expiry Date</a>
+          <a class="button easing" (click)="this.manageTab = 'shipping'; this.getShipping(sub);">Review Shipping</a>
+          <a class="button easing" href="mailto:{{sub.user.email}}">Email</a>
+          <a class="button red easing" (click)="this.revokeSubscription(sub)" [class.invisible]="sub.state != 'active'">
+            Revoke Subscription
+          </a>
+          <a class="button green easing" (click)="this.reinstateSubscription(sub)" [class.invisible]="sub.state != 'revoked'">
+            Reinstate Subscription
+          </a>
+        </div>
+
+        <div class="manage-tab" [class.active]="this.manageTab !== 'shipping'">
+
+            <div class="expiry-input">
+                <p class="label">
+                  Expiration in UNIX,
+                  <span class="eta">
+                      ETA: {{this.utility.getETA(sub.dateExpiry)}}
+                  </span>
+                </p>
+                <div class="input">
+                  <input type="number" [(ngModel)]="sub.dateExpiry"/>
+                </div>
+            </div>
+
+            <div class="expiry-buttons">
+              <a class="button easing" (click)="this.addTime(sub, 0)">
+                  Set to now
+              </a>
+              <a class="button easing" (click)="this.addTime(sub, 86400000)">
+                  Add day
+              </a>
+              <a class="button easing" (click)="this.addTime(sub, 86400000 * 7)">
+                  Add week
+              </a>
+              <a class="button easing" (click)="this.addTime(sub, 86400000 * 30)">
+                  Add month
+              </a>
+              <a class="button easing" (click)="this.addTime(sub, 86400000 * 365)">
+                  Add year
+              </a>
+            </div>
+
+            <div class="button-wrap">
+              <p class="info easing" [class.active]="sub.expiryMessageState">
+                {{sub.expiryMessage}}
+              </p>
+              <a class="button easing" (click)="this.updateSubscriptionExpiry(sub)">
+                Update Expiry
+              </a>
+            </div>
+
+        </div>
+        <!-- div.manage-tab || expiry dates-->
+
+        <div class="manage-tab shipping" [class.active]="this.manageTab === 'shipping'">
+          <div class="item">
+            <p class="label">First Name</p>
+            <p class="value">{{this.getShippingKey(sub, 'firstName')}}</p>
+          </div>
+          <div class="item">
+            <p class="label">Last Name</p>
+            <p class="value">{{this.getShippingKey(sub, 'lastName')}}</p>
+          </div>
+          <div class="item">
+            <p class="label">Country</p>
+            <p class="value">{{this.getShippingKey(sub, 'country')}}</p>
+          </div>
+          <div class="item">
+            <p class="label">Postal Code</p>
+            <p class="value">{{this.getShippingKey(sub, 'postalCode')}}</p>
+          </div>
+          <div class="item">
+            <p class="label">Address Line 1</p>
+            <p class="value">{{this.getShippingKey(sub, 'address1')}}</p>
+          </div>
+          <div class="item">
+            <p class="label">Address Line 2</p>
+            <p class="value">{{this.getShippingKey(sub, 'address2')}}</p>
+          </div>
+          <div class="item">
+            <p class="label">City</p>
+            <p class="value">{{this.getShippingKey(sub, 'city')}}</p>
+          </div>
+          <div class="item">
+            <p class="label">State/Province/Territory/Region</p>
+            <p class="value">{{this.getShippingKey(sub, 'region')}}</p>
+          </div>
+        </div>
+        <!-- div.manage-tab || shipping information -->
+
+      </div>
+      <!-- div.sub-manage-overlay -->
+
+    </div>
+    <!-- div.sub -->
+
+  </div>
+
+</div>

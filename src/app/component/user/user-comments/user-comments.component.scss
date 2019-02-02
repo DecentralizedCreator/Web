@@ -1,0 +1,127 @@
+@import "../../../base.styles.scss";
+
+h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 42px;
+    padding: 30px 0 0 0;
+}
+
+div.write {
+    padding: 15px;
+    p {
+        font-size: 24px;
+        font-weight: 400;
+        margin: 0 0 15px 0;
+    }
+    textarea {
+        width: 100%;
+        height: 200px;
+        resize: none;
+        background: $g3;
+        color: white;
+        font-size: 18px;
+        border: none;
+        padding: 15px;
+    }
+
+    display: none;
+    &.visible {display: block; }
+
+    @media (max-width: 960px) {
+        text-align: center;
+    }
+}
+
+div.write-submit {
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 15px 15px 15px;
+
+    display: none;
+    &.visible {display: flex; }
+
+    a.submit {
+        width: 200px;
+        height: 40px;
+        border-radius: 20px;
+        background: darken($b5, 10%);
+        color: white;
+        border: 2px solid white;
+        font-weight: 400;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            background: $b3;
+            transform: scale(1.1);
+        }
+    }
+    @media (max-width: 960px) {
+        a.submit {
+            width: 100%;
+        }
+    }
+}
+
+div.comments {
+    padding: 15px 15px 60px 15px;
+}
+
+div.comment {
+    width: 100%;
+    height: auto;
+    background: $g3;
+    padding: 15px;
+    display: flex;
+    margin: 30px 0;
+
+    div.comment-photo {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 2px solid white;
+        background: $g2;
+        position: relative;
+        overflow: hidden;
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 960px) {
+            width: 60px;
+            height: 60px;
+        }
+    }
+    div.comment-text {
+        padding-left: 15px;
+        h3 {
+            font-size: 24px;
+            font-weight: 400;
+            margin: 0 0 5px 0;
+            span.smaller { font-size: 14px; font-weight: bold; }
+        }
+        p {
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        @media (max-width: 960px) {
+            h3 {
+                font-size: 18px;
+                span.smaller {
+                    display: block; font-size: 12px;
+                }
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}

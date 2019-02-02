@@ -1,0 +1,49 @@
+@import "../../../base.styles.scss";
+
+a.button {
+    background: $b5;
+    border: 2px solid white;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    &.small {
+        width: 180px;
+        height: 30px;
+        border-radius: 15px;
+    }
+
+    &.big {
+        width: 240px;
+        height: 50px;
+        border-radius: 25px;
+    }
+
+    &.register {
+        width: 180px;
+        height: 40px;
+        border-radius: 20px;
+    }
+
+    &:hover {
+        background: $b3;
+        transform: scale(1.125);
+    }
+
+    &.red {
+        background: lighten($red, 5%);
+        &:hover { background: $red; }
+    }
+
+    &.green {
+        background: lighten($green, 5%);
+        &:hover { background: $green; }
+    }
+
+    &.loading {
+        pointer-events: none;
+    }
+}

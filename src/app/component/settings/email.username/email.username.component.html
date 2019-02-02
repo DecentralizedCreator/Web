@@ -1,0 +1,53 @@
+<h3>Photo</h3>
+
+<div class="photo-wrap">
+    <div class="photo-img">
+        <img [src]="this.session.getPhoto()"/>
+    </div>
+    <a class="button easing" (click)="this.clickEvent()">
+        Update Photo
+    </a>
+    <input type="file" name="photo" accept="image/*" id="user-photo-input"/>
+</div>
+
+<h3>Email and Username</h3>
+
+<div class="input-wrap">
+    <div class="input">
+        <p class="label">Email</p>
+        <input type="text" placeholder="Your Email..." [(ngModel)]="this.session.email" (input)="this.settings.checkEmail(this.session.email)"/>
+    </div>
+    <div class="checkmark easing"
+        [class.active]="this.settings.emailCheck.state !== 0 && (this.session.email != this.session.state.email)"
+        [class.red]="this.settings.emailCheck.state == -1"
+        [class.green]="this.settings.emailCheck.state == 1"
+    >
+        <p>
+            <i class="far fa-check-circle"></i>
+            {{this.settings.emailCheck.message}}
+        </p>
+    </div>
+    <a class="submit-button easing" (click)="this.settings.updateEmail(this.session.email)">
+        Update
+    </a>
+</div>
+
+<div class="input-wrap">
+    <div class="input">
+        <p class="label">Username</p>
+        <input type="text" placeholder="Your Username..." [(ngModel)]="this.session.username" (input)="this.settings.checkUsername(this.session.username)"/>
+    </div>
+    <div class="checkmark easing"
+        [class.active]="this.settings.usernameCheck.state !== 0 && (this.session.username != this.session.state.username)"
+        [class.red]="this.settings.usernameCheck.state == -1"
+        [class.green]="this.settings.usernameCheck.state == 1"
+    >
+        <p>
+            <i class="far fa-check-circle"></i>
+            {{this.settings.usernameCheck.message}}
+        </p>
+    </div>
+    <a class="submit-button easing" (click)="this.settings.updateUsername(this.session.username)">
+        Update
+    </a>
+</div>

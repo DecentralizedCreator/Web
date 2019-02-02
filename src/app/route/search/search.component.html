@@ -1,0 +1,18 @@
+<div class="page-content">
+  <div class="page-wrap no-bg">
+    <h1>Find Projects and Creators</h1>
+
+    <app-search-input></app-search-input>
+
+    <div class="content-wrapper-container">
+
+      <div class="content-wrapper static" [class.active]="!this.search.loading && this.search.results.length > 0">
+        <app-search-result></app-search-result>
+      </div>
+      <div class="content-wrapper fixed easing-500" [class.active]="this.search.loading || this.search.results.length == 0">
+        <app-search-preview></app-search-preview>
+      </div>
+
+    </div>
+  </div>
+</div>

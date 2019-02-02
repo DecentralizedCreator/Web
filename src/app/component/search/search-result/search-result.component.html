@@ -1,0 +1,24 @@
+<div class="results">
+    <div class="result" *ngFor="let result of this.search.results; let i = index;">
+      <div class="result-header">
+        <div class="result-image">
+          <img [src]="this.photoImage(result.photoUrl)"/>
+        </div>
+        <div class="result-header-text">
+          <h2>{{result.name}}</h2>
+          <h3>{{result.tagline}}</h3>
+        </div>
+      </div>
+      <div class="result-description">
+        <p>{{result.description}}</p>
+      </div>
+      <div class="result-buttons">
+        <p class="meta-label" [class.visible]="result.nsfw">
+          NSFW
+        </p>
+        <a class="button easing" routerLink="/page/{{result.profileUrl}}">
+          View
+        </a>
+      </div>
+    </div>
+</div>

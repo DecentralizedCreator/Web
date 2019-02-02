@@ -1,0 +1,158 @@
+@import "../../../base.styles.scss";
+
+div.results {
+    padding: 15px;
+}
+
+div.result {
+    margin: 15px 0;
+    width: 100%;
+    background: $g2;
+
+    div.result-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 15px 30px;
+        div.result-image {
+            width: 70px;
+            height: 70px;
+            background: $g4;
+            border: 2px solid white;
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        div.result-header-text {
+            padding: 0 15px;
+            h2 {
+                font-size: 24px;
+                font-weight: 400;
+            }
+            h3 {
+                font-size: 18px;
+                font-weight: 400;
+            }
+        }
+        @media (max-width: 960px) {
+            height: auto;
+            display: block;
+            margin: 0;
+            padding: 15px 0;
+            div.result-image {
+                margin: auto;
+                width: 120px;
+                height: 120px;
+            }
+            div.result-header-text {
+                padding: 30px 0 0 0;
+                h2, h3 { text-align: center; }
+            }
+        }
+    }
+
+    div.result-description {
+        margin: 15px 30px 0 30px;
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        @media (max-width: 960px) {
+            margin: 0;
+            height: auto;
+            p {
+                text-align: center;
+                padding: 15px;
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    div.result-stats {
+        display: flex;
+        width: 100%;
+        height: 40px;
+        justify-content: flex-start;
+        align-items: center;
+        background: $g2;
+        div.result-stat {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 30px;
+            &:last-of-type {
+                padding-right: 0;
+            }
+            p {
+                font-size: 18px;
+                padding: 5px;
+                i {
+                    margin: 0 5px 0 0;
+                }
+            }
+        }
+        @media (max-width: 960px) {
+            display: block;
+            height: auto;
+            div.result-stat {
+                width: 100%;
+                height: auto;
+                padding: 15px 0;
+            }
+        }
+    }
+
+    div.result-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        height: 90px;
+        padding: 0 30px;
+
+        p.meta-label {
+            margin-right: 30px;
+            display: none;
+            padding: 5px 15px;
+            background: $g4;
+            border-radius: 5px;
+            &.visible { display: block; }
+        }
+
+        a.button {
+            width: 240px;
+            height: 40px;
+            border-radius: 20px;
+            background: $b5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 2px solid white;
+            &:hover {
+                background: $b3;
+                transform: scale(1.1);
+            }
+        }
+
+        @media (max-width: 960px) {
+            flex-direction: column;
+            height: auto;
+            padding: 30px 15px;
+            p.meta-label {
+                margin: 15px;
+            }
+            a.button {
+                width: 100%;
+            }
+        }
+    }
+
+}

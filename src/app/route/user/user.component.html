@@ -1,0 +1,38 @@
+<div class="page-content">
+    <div class="page-wrap">
+        <app-page-loading [active]="this.loading"></app-page-loading>
+
+        <app-user-banner></app-user-banner>
+        <app-user-header></app-user-header>
+
+        <div class="user-tabs">
+            <a class="user-tab easing" [class.active]="this.activeTab == 0" (click)="this.activeTab = 0">
+                About
+            </a>
+            <a class="user-tab easing" [class.active]="this.activeTab == 1" (click)="this.activeTab = 1; this.resizeTextarea();">
+                Subscribe
+            </a>
+            <a class="user-tab easing" [class.active]="this.activeTab == 2" (click)="this.activeTab = 2">
+                Comments
+            </a>
+            <a class="user-tab easing" [class.active]="this.activeTab == 3" (click)="this.activeTab = 3">
+                Backers
+            </a>
+        </div>
+
+        <div class="content-section" [class.active]="this.activeTab == 0">
+            <app-user-goals></app-user-goals>
+            <app-user-social></app-user-social>
+            <app-user-description></app-user-description>
+        </div>
+        <div class="content-section" [class.active]="this.activeTab == 1">
+            <app-user-tiers></app-user-tiers>
+        </div>
+        <div class="content-section" [class.active]="this.activeTab == 2">
+            <app-user-comments></app-user-comments>
+        </div>
+        <div class="content-section" [class.active]="this.activeTab == 3">
+            <app-user-backers></app-user-backers>
+        </div>
+    </div>
+</div>

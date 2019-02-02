@@ -1,0 +1,12 @@
+<div class="profile-publish">
+    <div class="button-wrap">
+        <a class="preview-button easing" routerLink="/page/{{this.profile.data.profileUrl}}">
+            Preview Profile
+        </a>
+        <a class="publish-button easing" (click)="this.publish()">
+            {{this.profile.form.published ? 'Unpublish' : 'Publish'}} Profile
+        </a>
+    </div>
+
+</div>
+<!-- profile-publish -->

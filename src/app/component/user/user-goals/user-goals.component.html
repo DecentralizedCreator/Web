@@ -1,0 +1,39 @@
+<h2>Goals</h2>
+<div class="user-goals">
+    <div class="user-goal" [class.visible]="this.user.data.btcGoal">
+        <p>
+            <i class="fab fa-bitcoin"></i>
+            BTC
+        </p>
+        <p>{{this.countCurrencyGoal('btc')}}</p>
+        <p>of</p>
+        <p>{{this.user.data.btcGoal}}</p>
+    </div>
+    <div class="user-goal" [class.visible]="this.user.data.ethGoal">
+        <p>
+            <i class="fab fa-ethereum"></i>
+            ETH
+        </p>
+        <p>{{this.countCurrencyGoal('eth')}}</p>
+        <p>of</p>
+        <p>{{this.user.data.ethGoal || 0}}</p>
+    </div>
+    <div class="user-goal" [class.visible]="this.user.data.xmrGoal">
+        <p>
+            <i class="fab fa-monero"></i>
+            XMR
+        </p>
+        <p>{{this.countCurrencyGoal('xmr')}}</p>
+        <p>of</p>
+        <p>{{this.user.data.xmrGoal || 0}}</p>
+    </div>
+    <div class="user-goal" [class.visible]="this.user.data.subscriberGoal">
+        <p>{{this.countSubscribers()}}</p>
+        <p>of</p>
+        <p>
+            {{this.user.data.subscriberGoal}}
+        </p>
+        <p>Subscribers</p>
+    </div>
+</div>
+<!-- user-goals -->
