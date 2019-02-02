@@ -10,6 +10,9 @@ Decentralized Creator is a platform devoted to free speech. We believe that free
 ## Running the web app for development
 
 ```bash
+# install @angular/cli
+yarn global add @angular/cli
+
 # install node modules
 yarn
 

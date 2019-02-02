@@ -6,7 +6,6 @@ import { ProfileService } from '../../../service/profile/profile.service';
 
 import { environment as env } from '../../../../environments/environment';
 import * as superagent from 'superagent';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-profile-subs',

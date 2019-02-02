@@ -78,11 +78,10 @@ export class ProfileService {
                             .withCredentials();
 
       if (result.body.response) {
-        this.getSubTiers();
-
         const data = result.body.response;
 
         this.profileId = data._id;
+        this.getSubTiers();
 
         this.data.published = data.published;
         this.data.profileUrl = data.profileUrl;
@@ -140,11 +139,14 @@ export class ProfileService {
 
   public async getSubTiers() {
     try {
-      const result = superagent.get(`${env.api}/profile/subscriptions/${this.profileId}`)
+      const result = await superagent.get(`${env.api}/profile/subscriptions/${this.profileId}`)
                             .withCredentials();
+
+      console.log('result', result);
 
       this.subscriberTiers = result.body.response;
     } catch (error) {
+      console.log('error', error);
       this.error.autoHandleError(error);
     }
   }
