@@ -29,6 +29,8 @@ export class UserService {
     twitterUrl: '',
     youtubeUrl: '',
     linkedinUrl: '',
+    twitchUrl: '',
+    discordUrl: '',
     gabUrl: '',
     mindsUrl: '',
     subscriberGoal: 0,

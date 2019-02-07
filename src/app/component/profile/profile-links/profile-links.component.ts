@@ -34,6 +34,8 @@ export class ProfileLinksComponent implements OnInit {
       this.profile.form.linkedinUrl,
       this.profile.form.gabUrl,
       this.profile.form.mindsUrl,
+      this.profile.form.twitchUrl,
+      this.profile.form.discordUrl,
     );
   }
 
@@ -46,6 +48,8 @@ export class ProfileLinksComponent implements OnInit {
     linkedinUrl: string,
     gabUrl: string,
     mindsUrl: string,
+    twitchUrl: string,
+    discordUrl: string,
   ) {
     try {
       const result = await superagent
@@ -60,6 +64,8 @@ export class ProfileLinksComponent implements OnInit {
                         linkedinUrl ,
                         gabUrl,
                         mindsUrl,
+                        twitchUrl,
+                        discordUrl,
                       }).withCredentials();
 
       this.profile.data.websiteUrl = websiteUrl;
@@ -70,6 +76,8 @@ export class ProfileLinksComponent implements OnInit {
       this.profile.data.linkedinUrl = linkedinUrl;
       this.profile.data.gabUrl = gabUrl;
       this.profile.data.mindsUrl = mindsUrl;
+      this.profile.data.twitchUrl = twitchUrl;
+      this.profile.data.discordUrl = discordUrl;
 
       this.message = result.body.message;
       this.messageState = 1;

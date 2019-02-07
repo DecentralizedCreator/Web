@@ -1,0 +1,116 @@
+@import "../../../base.styles.scss";
+
+div.roadmap {
+    width: 100%;
+    min-height: 500px;
+    border-top: 2px solid $g4;
+    border-bottom: 2px solid $g4;
+}
+
+div.roadmap-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.roadmap-text {
+    width: calc(100% - 600px);
+    padding: 90px 15px;
+    h3 {
+        font-size: 32px;
+        font-weight: 300;
+        margin-bottom: 15px;
+    }
+    p {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+}
+
+div.roadmap-visual {
+    padding: 15px;
+    position: relative;
+
+    div.stage {
+        position: absolute;
+        width: 320px;
+        left: -380px;
+        top: 0px;
+        p {
+            font-size: 24px;
+            text-align: left;
+        }
+        i {
+            font-size: 32px;
+            position: absolute;
+            right: -35px;
+            top: 0px;
+            &.green { color: $green; }
+
+            @keyframes move {
+                0% { transform: translateX(0px); }
+                50% { transform: translateX(-10px); }
+                100% { transform: translateX(0px); }
+            }
+            &.move {
+                animation: move;
+                animation-iteration-count: infinite;
+                animation-duration: 2.5s;
+            }
+        }
+        &.stage-2 {
+            top: 180px;
+        }
+        &.stage-3 {
+            top: 360px;
+        }
+    }
+
+    div.roadmap-line {
+        position: relative;
+        margin-right: 60px;
+        width: 2.5px;
+        height: 360px;
+        background: white;
+        border-radius: 1.25px;
+        div.dot {
+            font-size: 32px;
+            position: absolute;
+            left: -14px;
+            top: -20px;
+            &.dot-2 { top: 160px; }
+            &.dot-3 { top: 340px; }
+        }
+    }
+}
+
+@media(max-width: 960px) {
+    div.roadmap-wrap {
+        display: block;
+    }
+
+    div.roadmap-text {
+        width: 100%;
+    }
+
+    div.roadmap-visual {
+        height: 420px;
+        div.stage {
+            left: 15px;
+            width: 220px;
+            transform: translateY(-15px);
+            p { font-size: 14px; margin-top: 5px; }
+            i { right: 0; }
+        }
+        div.roadmap-line {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+    }
+}

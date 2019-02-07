@@ -49,6 +49,22 @@
     </a>
     <a
     class="profile-link easing"
+    [href]="this.user.data.twitchUrl"
+    [target]="this.user.data.twitchUrl"
+    [class.visible]="this.user.data.twitchUrl"
+    >
+        <i class="fab fa-twitch"></i>
+    </a>
+    <a
+    class="profile-link easing"
+    [href]="this.user.data.discordUrl"
+    [target]="this.user.data.discordUrl"
+    [class.visible]="this.user.data.discordUrl"
+    >
+        <i class="fab fa-discord"></i>
+    </a>
+    <a
+    class="profile-link easing"
     [href]="this.user.data.gabUrl"
     [target]="this.user.data.gabUrl"
     [class.visible]="this.user.data.gabUrl"

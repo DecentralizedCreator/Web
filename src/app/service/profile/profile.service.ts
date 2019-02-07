@@ -31,6 +31,8 @@ export class ProfileService {
     linkedinUrl: '',
     gabUrl: '',
     mindsUrl: '',
+    twitchUrl: '',
+    discordUrl: '',
     subscriberGoal: 0,
     btcGoal: 0,
     ethGoal: 0,
@@ -57,6 +59,8 @@ export class ProfileService {
     linkedinUrl: '',
     gabUrl: '',
     mindsUrl: '',
+    twitchUrl: '',
+    discordUrl: '',
     subscriberGoal: 0,
     btcGoal: 0,
     ethGoal: 0,
@@ -101,6 +105,8 @@ export class ProfileService {
         this.data.linkedinUrl = data.linkedinUrl;
         this.data.gabUrl = data.gabUrl;
         this.data.mindsUrl = data.mindsUrl;
+        this.data.twitchUrl = data.twitchUrl;
+        this.data.discordUrl = data.discordUrl;
         this.data.subscriberGoal = data.subscriberGoal;
         this.data.btcGoal = data.btcGoal;
         this.data.ethGoal = data.ethGoal;
@@ -125,6 +131,8 @@ export class ProfileService {
         this.form.linkedinUrl = data.linkedinUrl;
         this.form.gabUrl = data.gabUrl;
         this.form.mindsUrl = data.mindsUrl;
+        this.form.twitchUrl = data.twitchUrl;
+        this.form.discordUrl = data.discordUrl;
         this.form.subscriberGoal = data.subscriberGoal;
         this.form.btcGoal = data.btcGoal;
         this.form.ethGoal = data.ethGoal;

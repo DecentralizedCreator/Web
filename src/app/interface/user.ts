@@ -18,6 +18,8 @@ export interface UserInterface {
     linkedinUrl: string;
     gabUrl: string;
     mindsUrl: string;
+    twitchUrl: string;
+    discordUrl: string;
     subscriberGoal: number;
     btcGoal: number;
     ethGoal: number;

@@ -91,6 +91,8 @@ import { RegisterFormLabelComponent } from './component/register/register-form-l
 import { ButtonLabelComponent } from './component/_shared/button-label/button-label.component';
 import { LoadingStateComponent } from './component/_shared/loading-state/loading-state.component';
 import { SearchPreviewComponent } from './component/search/search-preview/search-preview.component';
+import { IndexRoadmapComponent } from './component/index/index-roadmap/index-roadmap.component';
+import { IndexMediaComponent } from './component/index/index-media/index-media.component';
 
 @NgModule({
   declarations: [
@@ -158,6 +160,8 @@ import { SearchPreviewComponent } from './component/search/search-preview/search
     ButtonLabelComponent,
     LoadingStateComponent,
     SearchPreviewComponent,
+    IndexRoadmapComponent,
+    IndexMediaComponent,
   ],
   imports: [
     BrowserModule,

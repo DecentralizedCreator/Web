@@ -1,5 +1,5 @@
 export const environment = {
-    production: true,
+    production: false,
     api: 'https://beta-api.decentralizedcreator.com',
     btc: false,
     blockexplorer: 'https://testnet.blockexplorer.com',
